@@ -84,7 +84,7 @@ jobs:
             --target "$GITHUB_SHA" \
             --title "Tierra Mágica UI v$VERSION" \
             --prerelease \
-            --notes "Build de prueba instalable como módulo de Foundry VTT. Incluye pausa temática, marco general, controles, navegación, sidebar/chat, hotbar y panel de jugadores. La ficha de personaje no forma parte de este módulo."
+            --notes "Build instalable de Tierra Mágica UI para Foundry VTT. Incluye identidad visual, emblema oficial, ornamentación, controles, navegación, sidebar/chat, hotbar, panel de jugadores y pausa. La ficha de personaje se mantiene fuera de este módulo."
 
       - name: Release already exists
         if: steps.existing.outputs.exists == 'true'
