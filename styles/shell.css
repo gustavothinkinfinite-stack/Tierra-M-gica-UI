@@ -1,0 +1,75 @@
+/* Tierra Mágica UI — Foundry shell v0.2
+ * Se limita a la interfaz general. No estiliza fichas de Actor/Item.
+ */
+
+.tierra-magica-ui.tm-theme-full {
+  --tm-ui-panel:
+    linear-gradient(180deg, rgba(18, 24, 33, 0.97), rgba(8, 12, 18, 0.96));
+  --tm-ui-panel-soft:
+    linear-gradient(180deg, rgba(28, 37, 49, 0.93), rgba(11, 16, 23, 0.95));
+  --tm-ui-border: rgba(200, 154, 115, 0.78);
+  --tm-ui-border-soft: rgba(161, 119, 87, 0.52);
+  --tm-ui-highlight: rgba(93, 139, 198, 0.60);
+}
+
+/* Marcos principales de la UI. */
+.tierra-magica-ui.tm-theme-full :is(#controls, #sidebar, #hotbar, #action-bar, #players) {
+  color: var(--tm-text);
+  border-color: var(--tm-ui-border-soft);
+  box-shadow:
+    0 0 0 1px rgba(14, 16, 20, 0.88),
+    0 0 0 2px var(--tm-ui-border-soft),
+    0 10px 30px rgba(0, 0, 0, 0.42);
+}
+
+/* Línea superior/inferior discreta para integrar la UI con el mapa. */
+.tierra-magica-ui.tm-theme-full :is(#ui-top, #ui-bottom) {
+  position: relative;
+}
+
+.tierra-magica-ui.tm-theme-full #ui-top::after,
+.tierra-magica-ui.tm-theme-full #ui-bottom::before {
+  content: "";
+  position: absolute;
+  left: 4.5rem;
+  right: 4.5rem;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0.48;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(161, 119, 87, 0.55) 14%,
+    rgba(93, 139, 198, 0.28) 50%,
+    rgba(161, 119, 87, 0.55) 86%,
+    transparent
+  );
+}
+
+.tierra-magica-ui.tm-theme-full #ui-top::after {
+  bottom: 0;
+}
+
+.tierra-magica-ui.tm-theme-full #ui-bottom::before {
+  top: 0;
+}
+
+/* Scrollbars solo dentro de la UI principal. */
+.tierra-magica-ui.tm-theme-full :is(#sidebar, #chat-log, #players) * {
+  scrollbar-color: var(--tm-brass) rgba(6, 9, 13, 0.62);
+  scrollbar-width: thin;
+}
+
+.tierra-magica-ui.tm-theme-full :is(#sidebar, #chat-log, #players) *::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.tierra-magica-ui.tm-theme-full :is(#sidebar, #chat-log, #players) *::-webkit-scrollbar-track {
+  background: rgba(6, 9, 13, 0.62);
+}
+
+.tierra-magica-ui.tm-theme-full :is(#sidebar, #chat-log, #players) *::-webkit-scrollbar-thumb {
+  border: 1px solid rgba(238, 192, 145, 0.22);
+  background: linear-gradient(var(--tm-gold), var(--tm-leather));
+}
