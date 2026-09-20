@@ -4,6 +4,15 @@
       "Text": "TIERRA MÁGICA — EN PAUSA"
     },
     "Settings": {
+      "ThemeMode": {
+        "Name": "Tema visual de Tierra Mágica",
+        "Hint": "Define cuánto modifica Tierra Mágica la interfaz general de Foundry. No afecta las fichas de personaje.",
+        "Choices": {
+          "Full": "Completo — interfaz temática",
+          "Reduced": "Reducido — chat y hotbar",
+          "Compat": "Compatibilidad — solo identidad esencial"
+        }
+      },
       "PauseEnabled": {
         "Name": "Pausa visual de Tierra Mágica",
         "Hint": "Reemplaza el indicador de pausa de Foundry por la identidad visual de Tierra Mágica."
