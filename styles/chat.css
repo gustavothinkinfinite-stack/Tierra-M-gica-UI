@@ -1,0 +1,133 @@
+/* Tierra Mágica UI v0.3 — chat */
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log {
+  padding-inline: 8px !important;
+  gap: 8px;
+  background:
+    linear-gradient(180deg, rgba(7,10,15,.18), rgba(7,10,15,.04));
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message {
+  position: relative;
+  overflow: hidden;
+  margin: 7px 0 !important;
+  padding: 10px 11px 11px !important;
+  border: 1px solid rgba(135,90,56,.95) !important;
+  border-left: 4px solid var(--tm-brass) !important;
+  border-radius: 3px 8px 3px 8px !important;
+  background:
+    linear-gradient(90deg, rgba(93,139,198,.035), transparent 28%),
+    linear-gradient(180deg, #eee5d4, #cdbda5) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.18),
+    inset 0 -12px 24px rgba(70,45,29,.06),
+    0 5px 13px rgba(0,0,0,.38) !important;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(#eec091, #5d8bc6, #a17757);
+  box-shadow: 0 0 8px rgba(93,139,198,.24);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 54px;
+  height: 54px;
+  opacity: .14;
+  background: url("../assets/ui/ornaments/tm-rosette.svg") center / 48px 48px no-repeat;
+  transform: translate(14px,-14px);
+  pointer-events: none;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .message-header {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 6px;
+  margin-bottom: 7px;
+  color: #2f241c !important;
+  border-bottom: 1px solid rgba(93,65,44,.25) !important;
+  font-family: var(--tm-font-ui);
+  font-weight: 700;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .message-content {
+  position: relative;
+  z-index: 1;
+  color: #1d1b19 !important;
+  line-height: 1.35;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message :is(
+  .dice-roll,
+  .dice-result
+) {
+  position: relative;
+  z-index: 1;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .dice-formula {
+  border: 1px solid rgba(108,69,44,.42) !important;
+  border-radius: 4px !important;
+  background: rgba(255,255,255,.26) !important;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,.06);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .dice-total {
+  position: relative;
+  margin-top: 5px;
+  color: #161718 !important;
+  border: 1px solid rgba(97,65,43,.58) !important;
+  border-radius: 3px !important;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(93,139,198,.14), transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,.5), rgba(89,69,51,.08)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.2),
+    0 1px 3px rgba(0,0,0,.12);
+  font-family: var(--tm-font-display);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message.whisper {
+  border-left-color: #7d6eb1 !important;
+  background:
+    linear-gradient(90deg, rgba(118,88,161,.06), transparent 32%),
+    linear-gradient(180deg, #eee5d4, #cdbda5) !important;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message.emote {
+  border-left-color: var(--tm-arcane) !important;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#chat-controls, #chat-form) {
+  position: relative;
+  margin-inline: 6px !important;
+  border: 1px solid rgba(200,154,115,.56) !important;
+  border-radius: 4px !important;
+  background:
+    linear-gradient(180deg, rgba(27,33,43,.98), rgba(7,10,15,.99)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(238,192,145,.035),
+    0 4px 12px rgba(0,0,0,.28);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-form::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 190px;
+  height: 24px;
+  transform: translateX(-50%);
+  background: url("../assets/ui/ornaments/tm-divider.svg") center / 190px 24px no-repeat;
+  opacity: .7;
+  pointer-events: none;
+}
