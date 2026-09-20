@@ -1,18 +1,15 @@
-/* Tierra Mágica UI — Foundry shell v0.2.1
- * Se limita a la interfaz general. No estiliza fichas de Actor/Item.
- */
+/* Tierra Mágica UI — shell v0.3 */
 
 .tierra-magica-ui.tm-theme-full {
   --tm-ui-panel:
-    linear-gradient(180deg, rgba(18, 24, 33, 0.97), rgba(8, 12, 18, 0.96));
+    linear-gradient(180deg, rgba(18,24,33,.985), rgba(6,9,14,.992));
   --tm-ui-panel-soft:
-    linear-gradient(180deg, rgba(28, 37, 49, 0.93), rgba(11, 16, 23, 0.95));
-  --tm-ui-border: rgba(200, 154, 115, 0.82);
-  --tm-ui-border-soft: rgba(161, 119, 87, 0.58);
-  --tm-ui-highlight: rgba(93, 139, 198, 0.64);
+    linear-gradient(180deg, rgba(28,37,49,.95), rgba(10,15,22,.975));
+  --tm-ui-border: rgba(200,154,115,.88);
+  --tm-ui-border-soft: rgba(161,119,87,.62);
+  --tm-ui-highlight: rgba(93,139,198,.68);
 }
 
-/* V13/V14: #scene-controls y wrappers #ui-left/#ui-right son los anclajes estables. */
 .tierra-magica-ui.tm-theme-full :is(
   #scene-controls,
   #ui-right,
@@ -24,65 +21,62 @@
   color: var(--tm-text);
 }
 
-/* Marco de la columna derecha completa. */
+/* Panel derecho: ahora se comporta como carcasa, no solo como línea. */
 .tierra-magica-ui.tm-theme-full #ui-right {
   position: relative;
-  border-left: 1px solid var(--tm-ui-border) !important;
+  border-left: 2px solid var(--tm-ui-border) !important;
   background:
-    linear-gradient(90deg, rgba(93, 139, 198, 0.035), transparent 18%),
-    linear-gradient(180deg, rgba(16, 22, 31, 0.97), rgba(7, 10, 15, 0.985)) !important;
+    radial-gradient(circle at 18px 22px, rgba(93,139,198,.08), transparent 84px),
+    linear-gradient(90deg, rgba(200,154,115,.055), transparent 20%),
+    linear-gradient(180deg, rgba(16,22,31,.985), rgba(5,8,12,.995)) !important;
   box-shadow:
-    -1px 0 0 rgba(14, 16, 20, 0.92),
-    -3px 0 0 rgba(161, 119, 87, 0.16),
-    -12px 0 30px rgba(0, 0, 0, 0.28) !important;
+    -1px 0 0 rgba(14,16,20,.95),
+    -4px 0 0 rgba(161,119,87,.18),
+    -15px 0 34px rgba(0,0,0,.34),
+    inset 1px 0 0 rgba(238,192,145,.07) !important;
 }
 
-.tierra-magica-ui.tm-theme-full #ui-right::before,
+.tierra-magica-ui.tm-theme-full #ui-right::before {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  top: 4px;
+  left: -19px;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+  background: url("../assets/ui/ornaments/tm-rosette.svg") center / contain no-repeat;
+  filter:
+    drop-shadow(0 4px 7px rgba(0,0,0,.75))
+    drop-shadow(0 0 8px rgba(93,139,198,.2));
+}
+
 .tierra-magica-ui.tm-theme-full #ui-right::after {
   content: "";
   position: absolute;
+  z-index: 5;
   left: -1px;
-  z-index: 4;
-  width: 54px;
-  height: 1px;
+  top: 60px;
+  bottom: 54px;
+  width: 1px;
   pointer-events: none;
-  background: linear-gradient(90deg, var(--tm-gold), transparent);
-  box-shadow: 0 0 8px rgba(93, 139, 198, 0.18);
+  background: linear-gradient(
+    transparent,
+    rgba(238,192,145,.42) 10%,
+    rgba(93,139,198,.26) 50%,
+    rgba(238,192,145,.42) 90%,
+    transparent
+  );
+  box-shadow: 0 0 7px rgba(93,139,198,.14);
 }
 
-.tierra-magica-ui.tm-theme-full #ui-right::before { top: 0; }
-.tierra-magica-ui.tm-theme-full #ui-right::after { bottom: 0; }
-
-/* Línea superior/inferior discreta para integrar la UI con el mapa. */
 .tierra-magica-ui.tm-theme-full :is(#ui-top, #ui-bottom) {
   position: relative;
 }
 
-.tierra-magica-ui.tm-theme-full #ui-top::after,
-.tierra-magica-ui.tm-theme-full #ui-bottom::before {
-  content: "";
-  position: absolute;
-  left: 4.5rem;
-  right: 4.5rem;
-  height: 1px;
-  pointer-events: none;
-  opacity: 0.48;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(161, 119, 87, 0.55) 14%,
-    rgba(93, 139, 198, 0.28) 50%,
-    rgba(161, 119, 87, 0.55) 86%,
-    transparent
-  );
-}
-
-.tierra-magica-ui.tm-theme-full #ui-top::after { bottom: 0; }
-.tierra-magica-ui.tm-theme-full #ui-bottom::before { top: 0; }
-
-/* Scrollbars solo dentro de la interfaz lateral. */
+/* Scrollbars */
 .tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) * {
-  scrollbar-color: var(--tm-brass) rgba(6, 9, 13, 0.62);
+  scrollbar-color: var(--tm-brass) rgba(6,9,13,.62);
   scrollbar-width: thin;
 }
 
@@ -92,10 +86,11 @@
 }
 
 .tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) *::-webkit-scrollbar-track {
-  background: rgba(6, 9, 13, 0.62);
+  background: rgba(6,9,13,.62);
 }
 
 .tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) *::-webkit-scrollbar-thumb {
-  border: 1px solid rgba(238, 192, 145, 0.22);
+  border: 1px solid rgba(238,192,145,.24);
+  border-radius: 4px;
   background: linear-gradient(var(--tm-gold), var(--tm-leather));
 }
