@@ -1,8 +1,8 @@
 {
   "id": "tierra-magica-ui",
   "title": "Tierra Mágica — UI",
-  "description": "Corrige el anclaje de la hotbar de Foundry: el emblema y los marcos dejan de usar la caja completa de la aplicación y pasan a la macro-list visible.",
-  "version": "0.3.3",
+  "description": "Pulido visual: corrige la barra izquierda, elimina ornamentos recortados y usa un emblema de pausa de alta resolución sin escalado animado.",
+  "version": "0.3.4",
   "authors": [
     {
       "name": "Tierra Mágica"
@@ -37,5 +37,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
-  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.3/tierra-magica-ui-v0.3.3.zip"
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.4/tierra-magica-ui-v0.3.4.zip"
 }

@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.4 — Pulido visual y emblema nítido
+
+- Añadido `tm-emblem-official-large.webp` de alta resolución para la pantalla de pausa.
+- La pausa deja de reutilizar el asset liviano pensado para iconos pequeños.
+- Eliminado el escalado animado del emblema durante el pulso arcano; ahora solo anima iluminación para evitar interpolación y desenfoque.
+- Reducido el glow del emblema para preservar detalle fino.
+- Ajustada la barra izquierda con mayor padding y botones centrados.
+- Añadido espacio mínimo seguro alrededor de los controles de escena.
+- Eliminada la roseta inferior del panel izquierdo que podía quedar cortada.
+- Eliminados los ornamentos globales de esquina que se superponían al botón de selección de tokens.
+- Eliminado el remate inferior global que podía verse parcialmente fuera del viewport.
+- Eliminada la línea ornamental inferior de la hotbar que podía asomar cortada.
+- La ficha de personaje continúa fuera del alcance.
+
 ## 0.3.3 — Anclaje real de la hotbar
 
 - Confirmado mediante la captura real que `#hotbar` ocupa una caja de aplicación mucho mayor que la barra visible.

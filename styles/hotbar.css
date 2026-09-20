@@ -1,6 +1,5 @@
-/* Hotbar — anclaje real v0.3.3
- * #hotbar es la aplicación completa y puede ocupar una caja mucho mayor
- * que la barra visible. La decoración se ancla a sus superficies internas.
+/* Hotbar — anclaje real v0.3.4
+ * La decoración permanece contenida dentro de la macro-list visible.
  */
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar {
@@ -12,7 +11,6 @@
   box-shadow: none !important;
 }
 
-/* Controles laterales nativos: sonido, menú, página, etc. */
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar .hotbar-controls,
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(
   #hotbar-controls-left,
@@ -27,7 +25,6 @@
     0 4px 10px rgba(0,0,0,.34) !important;
 }
 
-/* Esta es la superficie real de los slots. */
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar nav.macro-list,
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar .macro-list {
   position: relative !important;
@@ -43,28 +40,12 @@
     0 7px 18px rgba(0,0,0,.42) !important;
 }
 
-/* Línea decorativa contenida en la propia barra, nunca en el canvas. */
+/* Se elimina la línea que sobresalía por debajo del viewport. */
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar nav.macro-list::after,
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar .macro-list::after {
-  content: "";
-  position: absolute;
-  left: 9%;
-  right: 9%;
-  bottom: -5px;
-  height: 1px;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(200,154,115,.58),
-    rgba(93,139,198,.34),
-    rgba(200,154,115,.58),
-    transparent
-  );
-  box-shadow: 0 0 6px rgba(93,139,198,.10);
+  display: none !important;
 }
 
-/* Emblema pequeño: ahora vive dentro de macro-list. */
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar .macro-list > .tm-hotbar-crest {
   position: absolute;
   left: 50%;

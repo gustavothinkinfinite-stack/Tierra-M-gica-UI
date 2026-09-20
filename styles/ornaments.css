@@ -1,4 +1,4 @@
-/* Tierra Mágica UI v0.3.1 — ornamentación estructural */
+/* Tierra Mágica UI v0.3.4 — ornamentación estructural */
 
 #tm-ui-ornaments {
   position: fixed;
@@ -8,36 +8,26 @@
   overflow: hidden;
 }
 
-#tm-ui-ornaments .tm-top-rail,
-#tm-ui-ornaments .tm-bottom-rail {
+/* Conservamos solamente el remate superior.
+ * Los ornamentos de esquina y el remate inferior se retiraron porque
+ * invadían controles de Foundry o quedaban parcialmente cortados.
+ */
+#tm-ui-ornaments .tm-top-rail {
   position: absolute;
   left: 72px;
   right: var(--tm-sidebar-width, 330px);
+  top: 0;
   height: 14px;
-  opacity: .62;
+  opacity: .56;
   background:
     url("../assets/ui/ornaments/tm-divider.svg") center / min(680px, 64vw) 30px no-repeat;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,.62));
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.58));
 }
 
-#tm-ui-ornaments .tm-top-rail { top: 0; }
-#tm-ui-ornaments .tm-bottom-rail { bottom: 0; transform: rotate(180deg); }
-
+#tm-ui-ornaments .tm-bottom-rail,
 #tm-ui-ornaments .tm-corner {
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  opacity: .68;
-  background: url("../assets/ui/ornaments/tm-corner.svg") center / contain no-repeat;
-  filter:
-    drop-shadow(0 4px 7px rgba(0,0,0,.65))
-    drop-shadow(0 0 5px rgba(93,139,198,.1));
+  display: none !important;
 }
-
-#tm-ui-ornaments .tm-corner.tl { left: 0; top: 0; }
-#tm-ui-ornaments .tm-corner.bl { left: 0; bottom: 0; transform: rotate(-90deg); }
-#tm-ui-ornaments .tm-corner.tr { right: 0; top: 0; transform: rotate(90deg); }
-#tm-ui-ornaments .tm-corner.br { right: 0; bottom: 0; transform: rotate(180deg); }
 
 #tm-brand-plate {
   position: fixed;
@@ -100,7 +90,6 @@
   text-transform: uppercase;
 }
 
-/* Importante: esta clase no altera position/display/size de Foundry. */
 .tm-ornamented-panel {
   isolation: isolate;
 }

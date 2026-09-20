@@ -1,8 +1,8 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.3.3";
+const VERSION = "0.3.4";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
-const PAUSE_ICON = OFFICIAL_EMBLEM;
+const PAUSE_ICON = `${ASSET_ROOT}/branding/tm-emblem-official-large.webp`;
 
 const THEME_CLASSES = [
   "tm-theme-full",
@@ -229,6 +229,11 @@ function applyPauseMarkup(element) {
   if (image) {
     image.src = PAUSE_ICON;
     image.alt = "Emblema oficial de Tierra Mágica";
+    image.decoding = "async";
+    image.onerror = () => {
+      image.onerror = null;
+      image.src = OFFICIAL_EMBLEM;
+    };
     image.classList.add("tm-pause-emblem");
     image.style.animation = "none";
   }
