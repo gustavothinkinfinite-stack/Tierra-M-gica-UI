@@ -1,87 +1,118 @@
 # Tierra Mágica — UI para Foundry VTT
 
-Repositorio de desarrollo de la interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
+Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.2.0 — Primera capa completa de interfaz**
+**v0.3.0 — Overhaul Visual Mayor**
+
+Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 
 Incluye:
 
-- identidad visual base;
-- pantalla de pausa personalizada;
-- marco visual general;
-- herramientas de escena;
-- sidebar derecha;
-- chat;
-- hotbar;
-- panel de jugadores;
-- tokens cromáticos;
-- soporte de animación reducida;
-- tres modos visuales: Completo, Reducido y Compatibilidad;
-- sin modificaciones a fichas de Actor, Item o personaje.
+- emblema oficial de Tierra Mágica;
+- pantalla de pausa reconstruida alrededor del emblema oficial;
+- ornamentación estructural global;
+- placa superior de identidad;
+- esquinas y separadores arcanos;
+- barra izquierda convertida en panel metálico/arcano;
+- navegación superior reforzada;
+- sidebar derecha convertida en carcasa temática;
+- chat con tarjetas propias;
+- hotbar convertida en artefacto arcano con remates laterales;
+- panel inferior izquierdo tematizado;
+- soporte responsive;
+- reducción de movimiento;
+- modos Completo, Reducido y Compatibilidad.
 
-## Alcance del repositorio
+## Alcance
 
 Este repositorio contiene exclusivamente la **capa visual/UI de Tierra Mágica para Foundry VTT**.
 
-La ficha de personaje se desarrolla por separado y queda fuera del alcance de este repositorio salvo integración futura expresamente decidida.
+**La ficha de personaje no forma parte de este repositorio en esta etapa.** Se desarrolla por separado y este módulo evita deliberadamente aplicar estilos globales a Actor Sheets e Item Sheets.
+
+## Identidad visual
+
+La interfaz utiliza:
+
+- azul noche y azul petróleo;
+- acero oscuro;
+- latón y cobre;
+- oro envejecido;
+- energía arcana azul-cian;
+- ornamentación de astrolabio y geometría arcana.
+
+El emblema oficial se encuentra en:
+
+```text
+assets/ui/branding/tm-emblem-official.webp
+```
 
 ## Modos de interfaz
 
 ### Completo
 
-Aplica el tema a pausa, marco general, herramientas, sidebar/chat, hotbar y panel de jugadores.
+Aplica el overhaul completo: ornamentación, marca, controles, navegación, sidebar, chat, hotbar, jugadores y pausa.
 
 ### Reducido
 
-Mantiene la pausa temática y aplica el tratamiento visual solamente al chat y hotbar.
+Mantiene la pausa temática y el tratamiento fuerte de chat/hotbar sin envolver toda la interfaz.
 
 ### Compatibilidad
 
-Mantiene la infraestructura y la identidad esencial con una intervención mínima sobre la UI estándar de Foundry.
+Reduce al mínimo la intervención sobre la UI estándar de Foundry.
 
-## Principios
+## Instalación por Manifest URL
 
-- No modificar archivos del núcleo de Foundry.
-- Usar hooks, CSS y APIs públicas.
-- Mantener compatibilidad y degradación razonable.
-- Priorizar legibilidad, mapa y tokens sobre ornamentación.
-- No aplicar selectores globales a las fichas.
-- Toda la UI debe seguir la identidad visual canónica de Tierra Mágica.
-
-## Compatibilidad objetivo
-
-- Foundry VTT v13.341+
-- Verificado contra Foundry VTT v14.368.
+```text
+https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json
+```
 
 ## Estructura
 
 ```text
 assets/
   ui/
-    pause/
+    branding/
+      tm-emblem-official.webp
+    ornaments/
+      tm-corner.svg
+      tm-divider.svg
+      tm-endcap.svg
+      tm-rosette.svg
+
 lang/
 scripts/
+
 styles/
   tokens.css
+  ornaments.css
   shell.css
   controls.css
+  navigation.css
   sidebar.css
+  chat.css
   hotbar.css
   players.css
   pause.css
   responsive.css
+
 module.json
 ```
 
-## Prueba de v0.2
+## Compatibilidad objetivo
 
-1. Instalar o actualizar el módulo.
-2. Activar **Tierra Mágica — UI** en el mundo.
-3. En Configuración del módulo seleccionar **Completo — interfaz temática**.
-4. Comprobar pausa, barra izquierda, sidebar, chat, hotbar y panel de jugadores.
-5. Si otro módulo visual entra en conflicto, probar **Reducido** y luego **Compatibilidad**.
+- Foundry VTT v13.341+
+- verificado contra Foundry VTT v14.368.
+
+## Principios técnicos
+
+- no modificar archivos del núcleo de Foundry;
+- usar hooks, CSS y APIs públicas;
+- no tocar la ficha de personaje;
+- mantener un modo de compatibilidad;
+- priorizar legibilidad, mapa y tokens;
+- usar assets pequeños y reutilizables para la ornamentación.
 
 ## Licencia
 
