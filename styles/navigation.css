@@ -1,0 +1,44 @@
+/* Navegación superior de escenas — Foundry V13/V14 */
+
+.tierra-magica-ui.tm-theme-full #navigation {
+  border: 1px solid rgba(161, 119, 87, 0.56) !important;
+  border-radius: 0 0 5px 5px;
+  background:
+    linear-gradient(180deg, rgba(20, 27, 37, 0.96), rgba(7, 11, 17, 0.97)) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(93, 139, 198, 0.08),
+    0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+.tierra-magica-ui.tm-theme-full #navigation :is(
+  .scene,
+  .scene-view,
+  .scene-name,
+  a,
+  button
+) {
+  color: var(--tm-text-muted);
+}
+
+.tierra-magica-ui.tm-theme-full #navigation :is(
+  .scene,
+  .scene-view,
+  a,
+  button
+):hover {
+  color: var(--tm-gold-light) !important;
+  text-shadow: 0 0 8px rgba(200, 154, 115, 0.24);
+}
+
+.tierra-magica-ui.tm-theme-full #navigation :is(
+  .scene.active,
+  .scene-view.active,
+  .scene.current,
+  [aria-current="true"]
+) {
+  color: #eef8ff !important;
+  border-color: var(--tm-arcane-light) !important;
+  box-shadow:
+    inset 0 -2px 0 rgba(93, 139, 198, 0.70),
+    0 0 10px rgba(93, 139, 198, 0.18);
+}
