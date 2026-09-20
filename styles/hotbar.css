@@ -40,8 +40,37 @@
   transform: translateY(-50%) scaleX(-1);
 }
 
-.tierra-magica-ui.tm-theme-full :is(#hotbar, #action-bar) .tm-hotbar-crest {
-  display: none;
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest {
+  position: absolute;
+  left: 50%;
+  top: -32px;
+  z-index: 6;
+  width: 54px;
+  height: 54px;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(93,139,198,.20), transparent 68%);
+  box-shadow: 0 0 16px rgba(93,139,198,.22);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest img {
+  position: relative;
+  z-index: 1;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 4px 7px rgba(0,0,0,.78))
+    drop-shadow(0 0 10px rgba(93,139,198,.38));
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
@@ -107,19 +136,3 @@
   border-color: var(--tm-gold) !important;
 }
 
-/* Emblema central suspendido sobre la hotbar. */
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > :first-child::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -28px;
-  z-index: 4;
-  width: 48px;
-  height: 48px;
-  transform: translateX(-50%);
-  pointer-events: none;
-  background: url("../assets/ui/branding/tm-emblem-official.webp") center / contain no-repeat;
-  filter:
-    drop-shadow(0 4px 7px rgba(0,0,0,.75))
-    drop-shadow(0 0 10px rgba(93,139,198,.35));
-}
