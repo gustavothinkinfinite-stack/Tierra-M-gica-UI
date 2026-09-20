@@ -1,10 +1,36 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.1.1";
+const VERSION = "0.2.0";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const PAUSE_ICON = `${ASSET_ROOT}/pause/tm-pause-emblem-v011.svg`;
 
+const THEME_CLASSES = [
+  "tm-theme-full",
+  "tm-theme-reduced",
+  "tm-theme-compat"
+];
+
 function pauseEnabled() {
   return game.settings.get(MODULE_ID, "pauseEnabled");
+}
+
+function getThemeMode() {
+  return game.settings.get(MODULE_ID, "themeMode") || "full";
+}
+
+function applyThemeMode(mode = getThemeMode()) {
+  const body = document.body;
+  if (!body) return;
+
+  body.classList.add("tierra-magica-ui");
+  body.classList.remove(...THEME_CLASSES);
+
+  const safeMode = ["full", "reduced", "compat"].includes(mode) ? mode : "full";
+  body.classList.add(`tm-theme-${safeMode}`);
+  body.dataset.tmUiMode = safeMode;
+}
+
+function applyPausePulse(enabled = game.settings.get(MODULE_ID, "pausePulse")) {
+  document.body?.classList.toggle("tm-pause-pulse", Boolean(enabled));
 }
 
 function applyPauseMarkup(element) {
@@ -46,6 +72,21 @@ function applyPauseMarkup(element) {
 Hooks.once("init", () => {
   console.log(`${MODULE_ID} | Inicializando Tierra Mágica UI v${VERSION}`);
 
+  game.settings.register(MODULE_ID, "themeMode", {
+    name: "TMUI.Settings.ThemeMode.Name",
+    hint: "TMUI.Settings.ThemeMode.Hint",
+    scope: "client",
+    config: true,
+    type: String,
+    choices: {
+      full: "TMUI.Settings.ThemeMode.Choices.Full",
+      reduced: "TMUI.Settings.ThemeMode.Choices.Reduced",
+      compat: "TMUI.Settings.ThemeMode.Choices.Compat"
+    },
+    default: "full",
+    onChange: applyThemeMode
+  });
+
   game.settings.register(MODULE_ID, "pauseEnabled", {
     name: "TMUI.Settings.PauseEnabled.Name",
     hint: "TMUI.Settings.PauseEnabled.Hint",
@@ -61,7 +102,8 @@ Hooks.once("init", () => {
     scope: "client",
     config: true,
     type: Boolean,
-    default: true
+    default: true,
+    onChange: applyPausePulse
   });
 });
 
@@ -78,11 +120,8 @@ Hooks.on("renderGamePause", (_app, element) => {
 });
 
 Hooks.once("ready", () => {
-  document.body.classList.add("tierra-magica-ui");
-  document.body.classList.toggle(
-    "tm-pause-pulse",
-    game.settings.get(MODULE_ID, "pausePulse")
-  );
+  applyThemeMode();
+  applyPausePulse();
 
   const existing = document.querySelector("#pause, .game-pause");
   if (existing) applyPauseMarkup(existing);
@@ -90,9 +129,7 @@ Hooks.once("ready", () => {
 
 Hooks.on("updateSetting", (setting) => {
   const key = setting?.key ?? "";
-  if (key === `${MODULE_ID}.pausePulse`) {
-    document.body.classList.toggle("tm-pause-pulse", Boolean(setting.value));
-  }
+
   if (key === `${MODULE_ID}.pauseEnabled`) {
     ui.pause?.render?.(true);
   }

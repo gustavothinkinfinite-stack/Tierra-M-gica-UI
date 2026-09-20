@@ -1,0 +1,93 @@
+name: Release Foundry Module
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - module.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read version
+        id: version
+        shell: bash
+        run: |
+          VERSION="$(jq -r '.version' module.json)"
+          if [[ -z "$VERSION" || "$VERSION" == "null" ]]; then
+            echo "No version found in module.json"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether release already exists
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+        shell: bash
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Package Foundry module
+        if: steps.existing.outputs.exists != 'true'
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          PACKAGE="tierra-magica-ui-v${VERSION}.zip"
+          STAGE="dist/tierra-magica-ui"
+
+          rm -rf dist
+          mkdir -p "$STAGE"
+
+          cp module.json "$STAGE/"
+          cp -R assets "$STAGE/"
+          cp -R lang "$STAGE/"
+          cp -R scripts "$STAGE/"
+          cp -R styles "$STAGE/"
+
+          if [[ -f README.md ]]; then cp README.md "$STAGE/"; fi
+          if [[ -f CHANGELOG.md ]]; then cp CHANGELOG.md "$STAGE/"; fi
+
+          (
+            cd dist
+            zip -r "$PACKAGE" tierra-magica-ui
+          )
+
+          echo "PACKAGE=dist/$PACKAGE" >> "$GITHUB_ENV"
+
+      - name: Create GitHub pre-release
+        if: steps.existing.outputs.exists != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: bash
+        run: |
+          gh release create "$TAG" "$PACKAGE" \
+            --target "$GITHUB_SHA" \
+            --title "Tierra Mágica UI v$VERSION" \
+            --prerelease \
+            --notes "Build de prueba instalable como módulo de Foundry VTT. Incluye pausa temática, marco general, controles, navegación, sidebar/chat, hotbar y panel de jugadores. La ficha de personaje no forma parte de este módulo."
+
+      - name: Release already exists
+        if: steps.existing.outputs.exists == 'true'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: echo "Release $TAG already exists; no new release was created."

@@ -1,0 +1,68 @@
+/* Hotbar inferior */
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) {
+  border: 1px solid rgba(200, 154, 115, 0.72);
+  border-radius: 5px;
+  background:
+    linear-gradient(180deg, rgba(20, 27, 37, 0.96), rgba(6, 10, 15, 0.98));
+  box-shadow:
+    inset 0 0 0 1px rgba(238, 192, 145, 0.045),
+    0 8px 22px rgba(0, 0, 0, 0.48);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+  .macro,
+  .slot,
+  li
+) {
+  border-color: rgba(161, 119, 87, 0.48);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(93, 139, 198, 0.06), transparent 62%),
+    rgba(8, 12, 18, 0.88);
+  box-shadow: inset 0 0 0 1px rgba(238, 192, 145, 0.025);
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+  .macro,
+  .slot,
+  li
+):hover {
+  border-color: var(--tm-gold);
+  box-shadow:
+    inset 0 0 10px rgba(200, 154, 115, 0.08),
+    0 0 10px rgba(200, 154, 115, 0.14);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+  .macro.active,
+  .slot.active,
+  li.active
+) {
+  border-color: var(--tm-arcane-light);
+  box-shadow:
+    inset 0 0 10px rgba(93, 139, 198, 0.14),
+    0 0 12px rgba(93, 139, 198, 0.24);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+  .macro-key,
+  .key
+) {
+  color: var(--tm-gold-light);
+  text-shadow: 0 1px 2px #000;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) button {
+  color: var(--tm-text-muted);
+  border-color: rgba(161, 119, 87, 0.52);
+  background: rgba(13, 18, 25, 0.94);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) button:hover {
+  color: var(--tm-gold-light);
+  border-color: var(--tm-gold);
+}
