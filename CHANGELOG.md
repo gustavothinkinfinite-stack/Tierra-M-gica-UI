@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.1
+
+- Corregidos selectores de interfaz para Foundry VTT V13/V14.
+- La barra izquierda ahora apunta a `#scene-controls`.
+- El marco derecho ahora usa el wrapper `#ui-right`.
+- Reforzada la tematización de pestañas, campos y chat.
+- Añadida tematización de navegación superior de escenas.
+- Ajustada la especificidad CSS frente a estilos del núcleo.
+- La ficha de personaje permanece expresamente fuera del alcance.
+
 ## 0.2.0
 
 - Añadido marco visual general de Tierra Mágica.
