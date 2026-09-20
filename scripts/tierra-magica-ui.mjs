@@ -230,6 +230,10 @@ function applyPauseMarkup(element) {
     image.src = PAUSE_ICON;
     image.alt = "Emblema oficial de Tierra Mágica";
     image.decoding = "async";
+    image.onerror = () => {
+      image.onerror = null;
+      image.src = OFFICIAL_EMBLEM;
+    };
     image.classList.add("tm-pause-emblem");
     image.style.animation = "none";
   }
