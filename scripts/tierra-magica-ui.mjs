@@ -1,7 +1,7 @@
 const MODULE_ID = "tierra-magica-ui";
 const VERSION = "0.1.1";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
-const PAUSE_ICON = `${ASSET_ROOT}/pause/tm-pause-emblem-v011.webp`;
+const PAUSE_ICON = `${ASSET_ROOT}/pause/tm-pause-emblem-v011.svg`;
 
 function pauseEnabled() {
   return game.settings.get(MODULE_ID, "pauseEnabled");
