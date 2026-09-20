@@ -1,5 +1,5 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.3.1";
+const VERSION = "0.3.2";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
 const PAUSE_ICON = OFFICIAL_EMBLEM;
@@ -112,7 +112,7 @@ function ensureOrnamentLayer() {
 }
 
 function ensureHotbarCrest() {
-  const hotbar = document.querySelector("#hotbar, #action-bar");
+  const hotbar = document.querySelector("#hotbar");
   if (!hotbar) return;
 
   const shouldShow =
@@ -143,10 +143,10 @@ function ensureHotbarCrest() {
 
 function decorateStableTargets() {
   const targets = [
-    document.querySelector("#ui-right"),
+    document.querySelector("#sidebar, .sidebar"),
     document.querySelector("#players"),
     document.querySelector("#navigation"),
-    document.querySelector("#hotbar, #action-bar")
+    document.querySelector("#hotbar")
   ].filter(Boolean);
 
   for (const target of targets) {
@@ -155,8 +155,8 @@ function decorateStableTargets() {
 
   ensureHotbarCrest();
 
-  const right = document.querySelector("#ui-right");
-  const width = right?.getBoundingClientRect?.().width;
+  const sidebar = document.querySelector("#sidebar, .sidebar");
+  const width = sidebar?.getBoundingClientRect?.().width;
 
   if (width && Number.isFinite(width)) {
     document.documentElement.style.setProperty(
@@ -172,8 +172,8 @@ function refreshResizeObserverTargets() {
   resizeObserver.disconnect();
 
   const targets = [
-    document.querySelector("#ui-right"),
-    document.querySelector("#hotbar, #action-bar"),
+    document.querySelector("#sidebar, .sidebar"),
+    document.querySelector("#hotbar"),
     document.querySelector("#navigation")
   ].filter(Boolean);
 
