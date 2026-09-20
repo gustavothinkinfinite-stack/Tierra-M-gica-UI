@@ -1,8 +1,8 @@
 {
   "id": "tierra-magica-ui",
   "title": "Tierra Mágica — UI",
-  "description": "Refinamiento del Overhaul Visual Mayor: corrige la geometría del sidebar y reduce ornamentación invasiva manteniendo el emblema oficial y la identidad visual completa.",
-  "version": "0.3.1",
+  "description": "Corrección de superficies reales de Foundry: el canvas deja de quedar cubierto por el wrapper derecho y la hotbar ya no duplica ornamentos. Mantiene el overhaul visual y el emblema oficial.",
+  "version": "0.3.2",
   "authors": [
     {
       "name": "Tierra Mágica"
@@ -37,5 +37,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
-  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.1/tierra-magica-ui-v0.3.1.zip"
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.2/tierra-magica-ui-v0.3.2.zip"
 }
