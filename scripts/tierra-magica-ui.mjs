@@ -111,6 +111,36 @@ function ensureOrnamentLayer() {
   }
 }
 
+function ensureHotbarCrest() {
+  const hotbar = document.querySelector("#hotbar, #action-bar");
+  if (!hotbar) return;
+
+  const shouldShow =
+    ornamentsEnabled() &&
+    ["full", "reduced"].includes(getThemeMode());
+
+  let crest = hotbar.querySelector(":scope > .tm-hotbar-crest");
+
+  if (!shouldShow) {
+    crest?.remove();
+    return;
+  }
+
+  if (!crest) {
+    crest = createElement("div", "tm-hotbar-crest", {
+      "aria-hidden": "true"
+    });
+
+    const image = createElement("img", "", {
+      src: OFFICIAL_EMBLEM,
+      alt: ""
+    });
+
+    crest.appendChild(image);
+    hotbar.appendChild(crest);
+  }
+}
+
 function decorateStableTargets() {
   const targets = [
     document.querySelector("#ui-right"),
@@ -122,6 +152,8 @@ function decorateStableTargets() {
   for (const target of targets) {
     target.classList.add("tm-ornamented-panel");
   }
+
+  ensureHotbarCrest();
 
   const right = document.querySelector("#ui-right");
   const width = right?.getBoundingClientRect?.().width;
