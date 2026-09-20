@@ -1,13 +1,13 @@
-/* Tierra Mágica UI — shell v0.3 */
+/* Tierra Mágica UI — shell v0.3.1 */
 
 .tierra-magica-ui.tm-theme-full {
   --tm-ui-panel:
     linear-gradient(180deg, rgba(18,24,33,.985), rgba(6,9,14,.992));
   --tm-ui-panel-soft:
     linear-gradient(180deg, rgba(28,37,49,.95), rgba(10,15,22,.975));
-  --tm-ui-border: rgba(200,154,115,.88);
-  --tm-ui-border-soft: rgba(161,119,87,.62);
-  --tm-ui-highlight: rgba(93,139,198,.68);
+  --tm-ui-border: rgba(200,154,115,.84);
+  --tm-ui-border-soft: rgba(161,119,87,.58);
+  --tm-ui-highlight: rgba(93,139,198,.64);
 }
 
 .tierra-magica-ui.tm-theme-full :is(
@@ -21,53 +21,17 @@
   color: var(--tm-text);
 }
 
-/* Panel derecho: ahora se comporta como carcasa, no solo como línea. */
+/* No se cambia position, width, display ni grid de #ui-right. */
 .tierra-magica-ui.tm-theme-full #ui-right {
-  position: relative;
-  border-left: 2px solid var(--tm-ui-border) !important;
+  border-left: 1px solid var(--tm-ui-border) !important;
   background:
-    radial-gradient(circle at 18px 22px, rgba(93,139,198,.08), transparent 84px),
-    linear-gradient(90deg, rgba(200,154,115,.055), transparent 20%),
-    linear-gradient(180deg, rgba(16,22,31,.985), rgba(5,8,12,.995)) !important;
+    linear-gradient(90deg, rgba(200,154,115,.035), transparent 16%),
+    linear-gradient(180deg, rgba(16,22,31,.975), rgba(5,8,12,.99)) !important;
   box-shadow:
-    -1px 0 0 rgba(14,16,20,.95),
-    -4px 0 0 rgba(161,119,87,.18),
-    -15px 0 34px rgba(0,0,0,.34),
-    inset 1px 0 0 rgba(238,192,145,.07) !important;
-}
-
-.tierra-magica-ui.tm-theme-full #ui-right::before {
-  content: "";
-  position: absolute;
-  z-index: 6;
-  top: 4px;
-  left: -19px;
-  width: 42px;
-  height: 42px;
-  pointer-events: none;
-  background: url("../assets/ui/ornaments/tm-rosette.svg") center / contain no-repeat;
-  filter:
-    drop-shadow(0 4px 7px rgba(0,0,0,.75))
-    drop-shadow(0 0 8px rgba(93,139,198,.2));
-}
-
-.tierra-magica-ui.tm-theme-full #ui-right::after {
-  content: "";
-  position: absolute;
-  z-index: 5;
-  left: -1px;
-  top: 60px;
-  bottom: 54px;
-  width: 1px;
-  pointer-events: none;
-  background: linear-gradient(
-    transparent,
-    rgba(238,192,145,.42) 10%,
-    rgba(93,139,198,.26) 50%,
-    rgba(238,192,145,.42) 90%,
-    transparent
-  );
-  box-shadow: 0 0 7px rgba(93,139,198,.14);
+    -1px 0 0 rgba(14,16,20,.92),
+    -3px 0 0 rgba(161,119,87,.12),
+    -10px 0 24px rgba(0,0,0,.26),
+    inset 1px 0 0 rgba(238,192,145,.045) !important;
 }
 
 .tierra-magica-ui.tm-theme-full :is(#ui-top, #ui-bottom) {
@@ -90,7 +54,7 @@
 }
 
 .tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) *::-webkit-scrollbar-thumb {
-  border: 1px solid rgba(238,192,145,.24);
+  border: 1px solid rgba(238,192,145,.22);
   border-radius: 4px;
   background: linear-gradient(var(--tm-gold), var(--tm-leather));
 }

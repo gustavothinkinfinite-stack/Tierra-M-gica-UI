@@ -1,50 +1,37 @@
-/* Sidebar derecha — overhaul v0.3 */
+/* Sidebar derecha — refinamiento v0.3.1
+ * No altera position/display/width de la estructura nativa.
+ */
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar, .sidebar) {
-  position: relative;
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) {
-  position: relative;
-  margin: 6px 6px 4px !important;
-  padding: 4px !important;
-  border: 1px solid rgba(200,154,115,.58) !important;
+  margin: 4px !important;
+  padding: 3px !important;
+  border: 1px solid rgba(200,154,115,.48) !important;
   border-radius: 4px !important;
   background:
-    radial-gradient(circle at 50% 0, rgba(93,139,198,.12), transparent 60%),
-    linear-gradient(180deg, rgba(39,46,57,.98), rgba(9,14,21,.99)) !important;
+    radial-gradient(circle at 50% 0, rgba(93,139,198,.09), transparent 62%),
+    linear-gradient(180deg, rgba(34,41,52,.96), rgba(9,14,21,.98)) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(238,192,145,.035),
-    0 4px 11px rgba(0,0,0,.28);
-}
-
-.tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs)::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -16px;
-  width: 190px;
-  height: 22px;
-  transform: translateX(-50%);
-  background: url("../assets/ui/ornaments/tm-divider.svg") center / 190px 22px no-repeat;
-  opacity: .5;
-  pointer-events: none;
+    inset 0 0 0 1px rgba(238,192,145,.025),
+    0 3px 8px rgba(0,0,0,.2);
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) :is(a, button, .item) {
   color: var(--tm-text-muted) !important;
   border: 1px solid transparent !important;
   border-radius: 3px !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,.85);
+  text-shadow: 0 1px 2px rgba(0,0,0,.82);
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) :is(a, button, .item):hover {
   color: var(--tm-gold-light) !important;
-  border-color: rgba(200,154,115,.3) !important;
-  background: rgba(200,154,115,.045) !important;
+  border-color: rgba(200,154,115,.24) !important;
+  background: rgba(200,154,115,.035) !important;
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) :is(
@@ -54,12 +41,12 @@
   [aria-selected="true"]
 ) {
   color: #f2f8ff !important;
-  border-color: rgba(93,139,198,.48) !important;
+  border-color: rgba(93,139,198,.42) !important;
   background:
-    radial-gradient(circle at 50% 50%, rgba(93,139,198,.15), transparent 70%) !important;
+    radial-gradient(circle at 50% 50%, rgba(93,139,198,.12), transparent 72%) !important;
   box-shadow:
-    inset 0 -2px 0 rgba(93,139,198,.72),
-    inset 0 0 10px rgba(93,139,198,.08);
+    inset 0 -2px 0 rgba(93,139,198,.62),
+    inset 0 0 8px rgba(93,139,198,.06);
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(
@@ -79,13 +66,13 @@
   textarea
 ) {
   color: #f1e4d5 !important;
-  border: 1px solid rgba(161,119,87,.68) !important;
+  border: 1px solid rgba(161,119,87,.6) !important;
   border-radius: 3px !important;
   background:
-    linear-gradient(180deg, rgba(8,12,18,.94), rgba(5,8,12,.98)) !important;
+    linear-gradient(180deg, rgba(8,12,18,.92), rgba(5,8,12,.97)) !important;
   box-shadow:
-    inset 0 1px 7px rgba(0,0,0,.54),
-    inset 0 0 0 1px rgba(238,192,145,.02);
+    inset 0 1px 6px rgba(0,0,0,.48),
+    inset 0 0 0 1px rgba(238,192,145,.015);
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(
@@ -97,9 +84,9 @@
   outline: none;
   border-color: var(--tm-arcane-light) !important;
   box-shadow:
-    inset 0 1px 7px rgba(0,0,0,.54),
-    0 0 0 1px rgba(93,139,198,.3),
-    0 0 10px rgba(93,139,198,.12);
+    inset 0 1px 6px rgba(0,0,0,.48),
+    0 0 0 1px rgba(93,139,198,.24),
+    0 0 8px rgba(93,139,198,.1);
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(
@@ -107,10 +94,10 @@
   .sidebar-header,
   header.directory-header
 ) {
-  margin: 4px 6px 6px !important;
-  padding: 7px 8px !important;
-  border: 1px solid rgba(161,119,87,.36);
+  margin: 3px 4px 5px !important;
+  padding: 6px 7px !important;
+  border: 1px solid rgba(161,119,87,.28);
   border-radius: 3px;
   background:
-    linear-gradient(180deg, rgba(28,35,46,.88), rgba(11,15,21,.88));
+    linear-gradient(180deg, rgba(28,35,46,.82), rgba(11,15,21,.82));
 }

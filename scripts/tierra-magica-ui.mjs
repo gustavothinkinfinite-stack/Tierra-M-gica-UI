@@ -1,5 +1,5 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.3.0";
+const VERSION = "0.3.1";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
 const PAUSE_ICON = OFFICIAL_EMBLEM;

@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.1 — Corrección de layout y refinamiento
+
+- Corregida la geometría de la columna derecha: la capa ornamental ya no reemplaza `position` ni dimensiones nativas de Foundry.
+- Restaurada la alineación natural entre pestañas, mensajes y formulario de chat.
+- Eliminados pseudo-marcos genéricos que podían interferir con componentes del núcleo.
+- Simplificado el marco global para que no compita con mapa, tokens y mensajes.
+- Reducidas esquinas y líneas ornamentales.
+- Reducida y aligerada la placa superior de Tierra Mágica.
+- Reducido el volumen visual de la hotbar, sus remates y el emblema central.
+- Refinada la barra izquierda y reducida su ornamentación inferior.
+- Se mantiene el emblema oficial introducido en v0.3.0.
+- La ficha de personaje continúa fuera del alcance.
+
 ## 0.3.0 — Overhaul Visual Mayor
 
 - Sustituido el emblema provisional por el emblema oficial de Tierra Mágica.
