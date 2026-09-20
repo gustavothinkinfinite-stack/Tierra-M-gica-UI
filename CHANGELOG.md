@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.3 — Anclaje real de la hotbar
+
+- Confirmado mediante la captura real que `#hotbar` ocupa una caja de aplicación mucho mayor que la barra visible.
+- Eliminados los remates laterales anclados al contenedor completo, responsables de las piezas flotantes alejadas de la hotbar.
+- El emblema central deja de vivir directamente bajo `#hotbar`.
+- El emblema oficial ahora se inserta dentro de `nav.macro-list/.macro-list`, la superficie visible de los slots.
+- El fondo y borde principal de la hotbar se aplican a la macro-list real.
+- Los controles laterales conservan tematización propia sin modificar la geometría general.
+- Se limpia automáticamente cualquier crest residual de versiones anteriores.
+- La ficha de personaje continúa fuera del alcance.
+
 ## 0.3.2 — Superficies reales de Foundry
 
 - Eliminado el fondo/borde aplicado al wrapper amplio `#ui-right`, que cubría una gran franja del canvas aunque la sidebar real estuviera a la derecha.
