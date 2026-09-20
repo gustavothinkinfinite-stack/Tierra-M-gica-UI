@@ -1,0 +1,16 @@
+:root {
+  --tm-night: #0e1014;
+  --tm-night-soft: #151a22;
+  --tm-slate: #252f3e;
+  --tm-steel: #41444e;
+  --tm-warm-stone: #d2beb3;
+  --tm-leather: #503726;
+  --tm-brass: #a17757;
+  --tm-gold: #c89a73;
+  --tm-gold-light: #eec091;
+  --tm-arcane: #5d8bc6;
+  --tm-arcane-light: #83c6ff;
+  --tm-text: #f6d8b5;
+  --tm-text-muted: #c3af99;
+  --tm-shadow: rgba(0, 0, 0, 0.72);
+}
