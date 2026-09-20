@@ -1,0 +1,122 @@
+/* Sidebar derecha y chat */
+
+.tierra-magica-ui.tm-theme-full #sidebar {
+  border: 1px solid var(--tm-ui-border);
+  border-radius: 3px 0 0 3px;
+  background: var(--tm-ui-panel);
+  box-shadow:
+    inset 0 0 0 1px rgba(238, 192, 145, 0.06),
+    inset 8px 0 24px rgba(93, 139, 198, 0.035),
+    -10px 0 24px rgba(0, 0, 0, 0.28);
+}
+
+.tierra-magica-ui.tm-theme-full #sidebar-tabs {
+  border-bottom: 1px solid rgba(200, 154, 115, 0.50);
+  background:
+    linear-gradient(180deg, rgba(35, 43, 54, 0.96), rgba(11, 16, 23, 0.98));
+}
+
+.tierra-magica-ui.tm-theme-full #sidebar-tabs :is(a, button, .item) {
+  color: var(--tm-text-muted);
+  border-color: transparent;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.tierra-magica-ui.tm-theme-full #sidebar-tabs :is(a, button, .item):hover {
+  color: var(--tm-gold-light);
+}
+
+.tierra-magica-ui.tm-theme-full #sidebar-tabs :is(
+  a.active,
+  button.active,
+  .item.active
+) {
+  color: #f2f8ff;
+  border-bottom-color: var(--tm-arcane-light);
+  box-shadow: inset 0 -2px 0 rgba(93, 139, 198, 0.58);
+}
+
+.tierra-magica-ui.tm-theme-full #sidebar :is(
+  input[type="text"],
+  input[type="search"],
+  select,
+  textarea
+) {
+  color: #f1e4d5;
+  border: 1px solid rgba(161, 119, 87, 0.58);
+  background: rgba(7, 10, 15, 0.80);
+  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.48);
+}
+
+.tierra-magica-ui.tm-theme-full #sidebar :is(
+  input[type="text"],
+  input[type="search"],
+  select,
+  textarea
+):focus {
+  outline: none;
+  border-color: var(--tm-arcane-light);
+  box-shadow:
+    inset 0 1px 6px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(93, 139, 198, 0.28);
+}
+
+/* Mensajes de chat. */
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message {
+  border: 1px solid rgba(161, 119, 87, 0.62);
+  border-left: 3px solid var(--tm-brass);
+  border-radius: 3px;
+  background:
+    linear-gradient(180deg, rgba(226, 216, 198, 0.96), rgba(197, 184, 163, 0.96));
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .message-header {
+  color: #2b241f;
+  border-bottom-color: rgba(80, 55, 38, 0.22);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .message-content {
+  color: #1d1b19;
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message :is(
+  .dice-roll,
+  .dice-result,
+  .dice-total
+) {
+  border-color: rgba(80, 55, 38, 0.30);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .dice-total {
+  color: #181818;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(66, 78, 88, 0.06));
+  box-shadow: inset 0 0 0 1px rgba(93, 139, 198, 0.12);
+}
+
+/* Formulario de chat. */
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#chat-form, #chat-controls) {
+  border-color: rgba(200, 154, 115, 0.54);
+  background: rgba(8, 12, 18, 0.94);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(
+  #chat-message,
+  #chat-form textarea
+) {
+  color: #ead7c2;
+  border-color: rgba(161, 119, 87, 0.64);
+  background: rgba(7, 10, 15, 0.90);
+}
+
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(
+  #chat-message,
+  #chat-form textarea
+):focus {
+  border-color: var(--tm-gold);
+  box-shadow: 0 0 10px rgba(93, 139, 198, 0.16);
+  outline: none;
+}
