@@ -47,12 +47,14 @@ function applyPausePulse(enabled = game.settings.get(MODULE_ID, "pausePulse")) {
 function createElement(tag, className, attrs = {}) {
   const el = document.createElement(tag);
   if (className) el.className = className;
+
   for (const [key, value] of Object.entries(attrs)) {
     if (key === "text") el.textContent = value;
     else if (key === "src") el.src = value;
     else if (key === "alt") el.alt = value;
     else el.setAttribute(key, value);
   }
+
   return el;
 }
 
@@ -70,7 +72,11 @@ function ensureOrnamentLayer() {
   }
 
   if (!layer) {
-    layer = createElement("div", "", { id: "tm-ui-ornaments", "aria-hidden": "true" });
+    layer = createElement("div", "", {
+      id: "tm-ui-ornaments",
+      "aria-hidden": "true"
+    });
+
     layer.append(
       createElement("div", "tm-top-rail"),
       createElement("div", "tm-bottom-rail"),
@@ -79,11 +85,15 @@ function ensureOrnamentLayer() {
       createElement("div", "tm-corner bl"),
       createElement("div", "tm-corner br")
     );
+
     document.body.appendChild(layer);
   }
 
   if (!brand) {
-    brand = createElement("div", "", { id: "tm-brand-plate", "aria-hidden": "true" });
+    brand = createElement("div", "", {
+      id: "tm-brand-plate",
+      "aria-hidden": "true"
+    });
 
     const image = createElement("img", "", {
       src: OFFICIAL_EMBLEM,
@@ -93,7 +103,7 @@ function ensureOrnamentLayer() {
     const copy = createElement("span", "tm-brand-copy");
     copy.append(
       createElement("span", "tm-brand-title", { text: "TIERRA MÁGICA" }),
-      createElement("span", "tm-brand-subtitle", { text: "FOUNDry VTT" })
+      createElement("span", "tm-brand-subtitle", { text: "FOUNDRY VTT" })
     );
 
     brand.append(image, copy);
@@ -109,12 +119,34 @@ function decorateStableTargets() {
     document.querySelector("#hotbar, #action-bar")
   ].filter(Boolean);
 
-  for (const target of targets) target.classList.add("tm-ornamented-panel");
+  for (const target of targets) {
+    target.classList.add("tm-ornamented-panel");
+  }
 
   const right = document.querySelector("#ui-right");
   const width = right?.getBoundingClientRect?.().width;
+
   if (width && Number.isFinite(width)) {
-    document.documentElement.style.setProperty("--tm-sidebar-width", `${Math.round(width)}px`);
+    document.documentElement.style.setProperty(
+      "--tm-sidebar-width",
+      `${Math.round(width)}px`
+    );
+  }
+}
+
+function refreshResizeObserverTargets() {
+  if (!resizeObserver) return;
+
+  resizeObserver.disconnect();
+
+  const targets = [
+    document.querySelector("#ui-right"),
+    document.querySelector("#hotbar, #action-bar"),
+    document.querySelector("#navigation")
+  ].filter(Boolean);
+
+  for (const target of targets) {
+    resizeObserver.observe(target);
   }
 }
 
@@ -124,10 +156,12 @@ function decorateInterface() {
 
   ensureOrnamentLayer();
   decorateStableTargets();
+  refreshResizeObserverTargets();
 }
 
 function scheduleDecorateInterface() {
   if (decorateQueued) return;
+
   decorateQueued = true;
   requestAnimationFrame(decorateInterface);
 }
@@ -143,12 +177,11 @@ function installInterfaceObservers() {
   });
 
   resizeObserver = new ResizeObserver(scheduleDecorateInterface);
-  const right = document.querySelector("#ui-right");
-  const hotbar = document.querySelector("#hotbar, #action-bar");
-  if (right) resizeObserver.observe(right);
-  if (hotbar) resizeObserver.observe(hotbar);
+  refreshResizeObserverTargets();
 
-  window.addEventListener("resize", scheduleDecorateInterface, { passive: true });
+  window.addEventListener("resize", scheduleDecorateInterface, {
+    passive: true
+  });
 }
 
 function applyPauseMarkup(element) {
@@ -168,21 +201,32 @@ function applyPauseMarkup(element) {
   if (caption && !caption.querySelector(".tm-pause-title")) {
     caption.textContent = "";
 
-    const title = createElement("span", "tm-pause-title", { text: "TIERRA MÁGICA" });
-    const subtitle = createElement("span", "tm-pause-subtitle", { text: "EN PAUSA" });
+    const title = createElement("span", "tm-pause-title", {
+      text: "TIERRA MÁGICA"
+    });
+
+    const subtitle = createElement("span", "tm-pause-subtitle", {
+      text: "EN PAUSA"
+    });
 
     caption.append(title, subtitle);
   }
 
   if (!element.querySelector(":scope > .tm-pause-shell")) {
     const shell = createElement("div", "tm-pause-shell");
-    while (element.firstChild) shell.appendChild(element.firstChild);
+
+    while (element.firstChild) {
+      shell.appendChild(element.firstChild);
+    }
+
     element.appendChild(shell);
   }
 }
 
 Hooks.once("init", () => {
-  console.log(`${MODULE_ID} | Inicializando Tierra Mágica UI v${VERSION}`);
+  console.log(
+    `${MODULE_ID} | Inicializando Tierra Mágica UI v${VERSION}`
+  );
 
   game.settings.register(MODULE_ID, "themeMode", {
     name: "TMUI.Settings.ThemeMode.Name",
@@ -231,6 +275,7 @@ Hooks.once("init", () => {
 
 Hooks.on("preRenderGamePause", (_app, context) => {
   if (!pauseEnabled()) return;
+
   context.icon = PAUSE_ICON;
   context.spin = false;
   context.text = "TIERRA MÁGICA — EN PAUSA";
