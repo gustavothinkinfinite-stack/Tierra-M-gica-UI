@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.2 — Superficies reales de Foundry
+
+- Eliminado el fondo/borde aplicado al wrapper amplio `#ui-right`, que cubría una gran franja del canvas aunque la sidebar real estuviera a la derecha.
+- La carcasa visual ahora se aplica a `#sidebar/.sidebar`, la superficie visible real.
+- El ancho usado por la ornamentación superior/inferior ahora se calcula desde la sidebar real.
+- Hotbar y emblema central ahora se vinculan únicamente a `#hotbar`.
+- Eliminada la tematización ornamental duplicada sobre `#action-bar`, responsable de piezas flotantes en el centro y a la izquierda del canvas.
+- Eliminada la roseta superpuesta al panel de jugadores/latencia.
+- Se mantiene el emblema oficial, pausa, chat, barra izquierda, navegación y modos visuales.
+- La ficha de personaje continúa fuera del alcance.
+
 ## 0.3.1 — Corrección de layout y refinamiento
 
 - Corregida la geometría de la columna derecha: la capa ornamental ya no reemplaza `position` ni dimensiones nativas de Foundry.
