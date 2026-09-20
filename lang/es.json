@@ -1,0 +1,17 @@
+{
+  "TMUI": {
+    "Pause": {
+      "Text": "TIERRA MÁGICA — EN PAUSA"
+    },
+    "Settings": {
+      "PauseEnabled": {
+        "Name": "Pausa visual de Tierra Mágica",
+        "Hint": "Reemplaza el indicador de pausa de Foundry por la identidad visual de Tierra Mágica."
+      },
+      "PausePulse": {
+        "Name": "Pulso arcano de la pausa",
+        "Hint": "Activa una animación luminosa suave en el emblema de pausa. Respeta la preferencia del sistema para reducir movimiento."
+      }
+    }
+  }
+}
