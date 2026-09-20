@@ -1,0 +1,30 @@
+{
+  "id": "tierra-magica-ui",
+  "title": "Tierra Mágica — UI",
+  "description": "Interfaz visual oficial de Tierra Mágica para Foundry VTT. v0.1.1: pausa personalizada e infraestructura visual. No modifica fichas de personaje.",
+  "version": "0.1.1",
+  "authors": [
+    {
+      "name": "Tierra Mágica"
+    }
+  ],
+  "url": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI",
+  "compatibility": {
+    "minimum": "13.341",
+    "verified": "14.368"
+  },
+  "esmodules": [
+    "scripts/tierra-magica-ui.mjs"
+  ],
+  "styles": [
+    "styles/tokens.css",
+    "styles/pause.css"
+  ],
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    }
+  ]
+}
