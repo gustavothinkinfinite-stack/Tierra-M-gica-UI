@@ -8,14 +8,18 @@
         "Name": "Tema visual de Tierra Mágica",
         "Hint": "Define cuánto modifica Tierra Mágica la interfaz general de Foundry. No afecta las fichas de personaje.",
         "Choices": {
-          "Full": "Completo — interfaz temática",
+          "Full": "Completo — overhaul visual",
           "Reduced": "Reducido — chat y hotbar",
-          "Compat": "Compatibilidad — solo identidad esencial"
+          "Compat": "Compatibilidad — identidad esencial"
         }
+      },
+      "OrnamentsEnabled": {
+        "Name": "Ornamentación avanzada",
+        "Hint": "Activa el marco, remates, esquinas y placa de identidad del modo Completo."
       },
       "PauseEnabled": {
         "Name": "Pausa visual de Tierra Mágica",
-        "Hint": "Reemplaza el indicador de pausa de Foundry por la identidad visual de Tierra Mágica."
+        "Hint": "Reemplaza el indicador de pausa de Foundry por el emblema oficial de Tierra Mágica."
       },
       "PausePulse": {
         "Name": "Pulso arcano de la pausa",
