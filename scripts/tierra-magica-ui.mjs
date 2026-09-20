@@ -1,7 +1,8 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.2.0";
+const VERSION = "0.3.0";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
-const PAUSE_ICON = `${ASSET_ROOT}/pause/tm-pause-emblem-v011.svg`;
+const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
+const PAUSE_ICON = OFFICIAL_EMBLEM;
 
 const THEME_CLASSES = [
   "tm-theme-full",
@@ -9,8 +10,16 @@ const THEME_CLASSES = [
   "tm-theme-compat"
 ];
 
+let uiObserver = null;
+let resizeObserver = null;
+let decorateQueued = false;
+
 function pauseEnabled() {
   return game.settings.get(MODULE_ID, "pauseEnabled");
+}
+
+function ornamentsEnabled() {
+  return game.settings.get(MODULE_ID, "ornamentsEnabled");
 }
 
 function getThemeMode() {
@@ -27,10 +36,119 @@ function applyThemeMode(mode = getThemeMode()) {
   const safeMode = ["full", "reduced", "compat"].includes(mode) ? mode : "full";
   body.classList.add(`tm-theme-${safeMode}`);
   body.dataset.tmUiMode = safeMode;
+
+  scheduleDecorateInterface();
 }
 
 function applyPausePulse(enabled = game.settings.get(MODULE_ID, "pausePulse")) {
   document.body?.classList.toggle("tm-pause-pulse", Boolean(enabled));
+}
+
+function createElement(tag, className, attrs = {}) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  for (const [key, value] of Object.entries(attrs)) {
+    if (key === "text") el.textContent = value;
+    else if (key === "src") el.src = value;
+    else if (key === "alt") el.alt = value;
+    else el.setAttribute(key, value);
+  }
+  return el;
+}
+
+function ensureOrnamentLayer() {
+  const full = getThemeMode() === "full";
+  const enabled = ornamentsEnabled();
+
+  let layer = document.getElementById("tm-ui-ornaments");
+  let brand = document.getElementById("tm-brand-plate");
+
+  if (!full || !enabled) {
+    layer?.remove();
+    brand?.remove();
+    return;
+  }
+
+  if (!layer) {
+    layer = createElement("div", "", { id: "tm-ui-ornaments", "aria-hidden": "true" });
+    layer.append(
+      createElement("div", "tm-top-rail"),
+      createElement("div", "tm-bottom-rail"),
+      createElement("div", "tm-corner tl"),
+      createElement("div", "tm-corner tr"),
+      createElement("div", "tm-corner bl"),
+      createElement("div", "tm-corner br")
+    );
+    document.body.appendChild(layer);
+  }
+
+  if (!brand) {
+    brand = createElement("div", "", { id: "tm-brand-plate", "aria-hidden": "true" });
+
+    const image = createElement("img", "", {
+      src: OFFICIAL_EMBLEM,
+      alt: ""
+    });
+
+    const copy = createElement("span", "tm-brand-copy");
+    copy.append(
+      createElement("span", "tm-brand-title", { text: "TIERRA MÁGICA" }),
+      createElement("span", "tm-brand-subtitle", { text: "FOUNDry VTT" })
+    );
+
+    brand.append(image, copy);
+    document.body.appendChild(brand);
+  }
+}
+
+function decorateStableTargets() {
+  const targets = [
+    document.querySelector("#ui-right"),
+    document.querySelector("#players"),
+    document.querySelector("#navigation"),
+    document.querySelector("#hotbar, #action-bar")
+  ].filter(Boolean);
+
+  for (const target of targets) target.classList.add("tm-ornamented-panel");
+
+  const right = document.querySelector("#ui-right");
+  const width = right?.getBoundingClientRect?.().width;
+  if (width && Number.isFinite(width)) {
+    document.documentElement.style.setProperty("--tm-sidebar-width", `${Math.round(width)}px`);
+  }
+}
+
+function decorateInterface() {
+  decorateQueued = false;
+  if (!document.body) return;
+
+  ensureOrnamentLayer();
+  decorateStableTargets();
+}
+
+function scheduleDecorateInterface() {
+  if (decorateQueued) return;
+  decorateQueued = true;
+  requestAnimationFrame(decorateInterface);
+}
+
+function installInterfaceObservers() {
+  uiObserver?.disconnect();
+  resizeObserver?.disconnect();
+
+  uiObserver = new MutationObserver(scheduleDecorateInterface);
+  uiObserver.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+  resizeObserver = new ResizeObserver(scheduleDecorateInterface);
+  const right = document.querySelector("#ui-right");
+  const hotbar = document.querySelector("#hotbar, #action-bar");
+  if (right) resizeObserver.observe(right);
+  if (hotbar) resizeObserver.observe(hotbar);
+
+  window.addEventListener("resize", scheduleDecorateInterface, { passive: true });
 }
 
 function applyPauseMarkup(element) {
@@ -41,7 +159,7 @@ function applyPauseMarkup(element) {
   const image = element.querySelector("img");
   if (image) {
     image.src = PAUSE_ICON;
-    image.alt = "Emblema de Tierra Mágica";
+    image.alt = "Emblema oficial de Tierra Mágica";
     image.classList.add("tm-pause-emblem");
     image.style.animation = "none";
   }
@@ -50,20 +168,14 @@ function applyPauseMarkup(element) {
   if (caption && !caption.querySelector(".tm-pause-title")) {
     caption.textContent = "";
 
-    const title = document.createElement("span");
-    title.className = "tm-pause-title";
-    title.textContent = "TIERRA MÁGICA";
-
-    const subtitle = document.createElement("span");
-    subtitle.className = "tm-pause-subtitle";
-    subtitle.textContent = "EN PAUSA";
+    const title = createElement("span", "tm-pause-title", { text: "TIERRA MÁGICA" });
+    const subtitle = createElement("span", "tm-pause-subtitle", { text: "EN PAUSA" });
 
     caption.append(title, subtitle);
   }
 
   if (!element.querySelector(":scope > .tm-pause-shell")) {
-    const shell = document.createElement("div");
-    shell.className = "tm-pause-shell";
+    const shell = createElement("div", "tm-pause-shell");
     while (element.firstChild) shell.appendChild(element.firstChild);
     element.appendChild(shell);
   }
@@ -85,6 +197,16 @@ Hooks.once("init", () => {
     },
     default: "full",
     onChange: applyThemeMode
+  });
+
+  game.settings.register(MODULE_ID, "ornamentsEnabled", {
+    name: "TMUI.Settings.OrnamentsEnabled.Name",
+    hint: "TMUI.Settings.OrnamentsEnabled.Hint",
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: true,
+    onChange: scheduleDecorateInterface
   });
 
   game.settings.register(MODULE_ID, "pauseEnabled", {
@@ -122,6 +244,8 @@ Hooks.on("renderGamePause", (_app, element) => {
 Hooks.once("ready", () => {
   applyThemeMode();
   applyPausePulse();
+  decorateInterface();
+  installInterfaceObservers();
 
   const existing = document.querySelector("#pause, .game-pause");
   if (existing) applyPauseMarkup(existing);
@@ -132,5 +256,12 @@ Hooks.on("updateSetting", (setting) => {
 
   if (key === `${MODULE_ID}.pauseEnabled`) {
     ui.pause?.render?.(true);
+  }
+
+  if (
+    key === `${MODULE_ID}.themeMode` ||
+    key === `${MODULE_ID}.ornamentsEnabled`
+  ) {
+    scheduleDecorateInterface();
   }
 });
