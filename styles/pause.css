@@ -1,0 +1,156 @@
+/* Tierra Mágica — Pause UI v0.1.1
+ * No modifica fichas de Actor/Item.
+ */
+
+.tierra-magica-ui #pause.tm-pause,
+.tierra-magica-ui .game-pause.tm-pause,
+.tierra-magica-ui .tm-pause {
+  color: var(--tm-text);
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.tierra-magica-ui .tm-pause > .tm-pause-shell,
+.tierra-magica-ui #pause > .tm-pause-shell,
+.tierra-magica-ui .game-pause > .tm-pause-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(620px, 76vw);
+  margin-inline: auto;
+  padding: 8px 30px 15px;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(93, 139, 198, 0.11), transparent 30%),
+    linear-gradient(90deg, transparent 0%, rgba(7, 10, 15, 0.40) 15%, rgba(7, 10, 15, 0.66) 50%, rgba(7, 10, 15, 0.40) 85%, transparent 100%);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.58));
+  isolation: isolate;
+}
+
+.tierra-magica-ui .tm-pause > .tm-pause-shell::after,
+.tierra-magica-ui #pause > .tm-pause-shell::after,
+.tierra-magica-ui .game-pause > .tm-pause-shell::after {
+  content: "";
+  width: min(380px, 72%);
+  height: 1px;
+  margin-top: 9px;
+  background: linear-gradient(90deg, transparent, rgba(200,154,115,0.72), rgba(93,139,198,0.60), rgba(200,154,115,0.72), transparent);
+  box-shadow: 0 0 10px rgba(93, 139, 198, 0.14);
+  pointer-events: none;
+}
+
+.tierra-magica-ui .tm-pause img.tm-pause-emblem,
+.tierra-magica-ui #pause img.tm-pause-emblem,
+.tierra-magica-ui .game-pause img.tm-pause-emblem {
+  display: block !important;
+  width: clamp(235px, 17vw, 290px) !important;
+  max-width: 290px !important;
+  height: auto !important;
+  margin: -72px auto -18px !important;
+  object-fit: contain;
+  opacity: 1 !important;
+  filter:
+    drop-shadow(0 12px 16px rgba(0, 0, 0, 0.78))
+    drop-shadow(0 0 15px rgba(93, 139, 198, 0.38));
+  transform-origin: 50% 50%;
+  animation: none !important;
+}
+
+.tierra-magica-ui.tm-pause-pulse .tm-pause img.tm-pause-emblem,
+.tierra-magica-ui.tm-pause-pulse #pause img.tm-pause-emblem,
+.tierra-magica-ui.tm-pause-pulse .game-pause img.tm-pause-emblem {
+  animation: tm-arcane-breathe 5.5s ease-in-out infinite !important;
+}
+
+.tierra-magica-ui .tm-pause figcaption,
+.tierra-magica-ui .tm-pause h2,
+.tierra-magica-ui .tm-pause .pause-text,
+.tierra-magica-ui #pause figcaption,
+.tierra-magica-ui #pause h2,
+.tierra-magica-ui #pause .pause-text,
+.tierra-magica-ui .game-pause figcaption,
+.tierra-magica-ui .game-pause h2,
+.tierra-magica-ui .game-pause .pause-text {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  line-height: 1;
+  background: transparent !important;
+  border: 0 !important;
+  text-shadow: none;
+}
+
+.tierra-magica-ui .tm-pause-title {
+  color: var(--tm-gold-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.98),
+    0 0 12px rgba(200, 154, 115, 0.28);
+  white-space: nowrap;
+}
+
+.tierra-magica-ui .tm-pause-subtitle {
+  color: #f1dcc4;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(11px, 1vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  line-height: 1.15;
+  padding-left: 0.42em;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.98),
+    0 0 9px rgba(93, 139, 198, 0.18);
+}
+
+@keyframes tm-arcane-breathe {
+  0%, 100% {
+    transform: scale(0.992);
+    filter:
+      drop-shadow(0 12px 16px rgba(0, 0, 0, 0.78))
+      drop-shadow(0 0 11px rgba(93, 139, 198, 0.28));
+  }
+  50% {
+    transform: scale(1.012);
+    filter:
+      drop-shadow(0 12px 17px rgba(0, 0, 0, 0.80))
+      drop-shadow(0 0 22px rgba(93, 139, 198, 0.58));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tierra-magica-ui.tm-pause-pulse .tm-pause img.tm-pause-emblem,
+  .tierra-magica-ui.tm-pause-pulse #pause img.tm-pause-emblem,
+  .tierra-magica-ui.tm-pause-pulse .game-pause img.tm-pause-emblem {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .tierra-magica-ui .tm-pause > .tm-pause-shell,
+  .tierra-magica-ui #pause > .tm-pause-shell,
+  .tierra-magica-ui .game-pause > .tm-pause-shell {
+    width: min(520px, 88vw);
+    padding-inline: 18px;
+  }
+
+  .tierra-magica-ui .tm-pause img.tm-pause-emblem,
+  .tierra-magica-ui #pause img.tm-pause-emblem,
+  .tierra-magica-ui .game-pause img.tm-pause-emblem {
+    width: clamp(200px, 32vw, 250px) !important;
+    margin-top: -52px !important;
+  }
+}
