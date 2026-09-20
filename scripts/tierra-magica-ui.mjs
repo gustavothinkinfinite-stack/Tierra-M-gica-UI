@@ -1,5 +1,5 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.3.2";
+const VERSION = "0.3.3";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
 const PAUSE_ICON = OFFICIAL_EMBLEM;
@@ -115,16 +115,20 @@ function ensureHotbarCrest() {
   const hotbar = document.querySelector("#hotbar");
   if (!hotbar) return;
 
+  const anchor = hotbar.querySelector("nav.macro-list, .macro-list");
   const shouldShow =
     ornamentsEnabled() &&
     ["full", "reduced"].includes(getThemeMode());
 
-  let crest = hotbar.querySelector(":scope > .tm-hotbar-crest");
+  /* Limpia cualquier crest antiguo anclado al workspace completo. */
+  hotbar.querySelector(":scope > .tm-hotbar-crest")?.remove();
 
-  if (!shouldShow) {
-    crest?.remove();
+  if (!anchor || !shouldShow) {
+    hotbar.querySelectorAll(".tm-hotbar-crest").forEach((node) => node.remove());
     return;
   }
+
+  let crest = anchor.querySelector(":scope > .tm-hotbar-crest");
 
   if (!crest) {
     crest = createElement("div", "tm-hotbar-crest", {
@@ -137,7 +141,7 @@ function ensureHotbarCrest() {
     });
 
     crest.appendChild(image);
-    hotbar.appendChild(crest);
+    anchor.appendChild(crest);
   }
 }
 
