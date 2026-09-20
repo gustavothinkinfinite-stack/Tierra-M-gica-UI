@@ -1,20 +1,18 @@
-/* Hotbar — overhaul v0.3 */
+/* Hotbar — refinamiento v0.3.1 */
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) {
-  position: relative !important;
   overflow: visible !important;
-  padding: 9px 22px 8px !important;
-  border: 2px solid rgba(200,154,115,.82) !important;
-  border-radius: 7px 7px 14px 14px !important;
+  padding: 6px 14px 6px !important;
+  border: 1px solid rgba(200,154,115,.76) !important;
+  border-radius: 6px 6px 11px 11px !important;
   background:
-    radial-gradient(circle at 50% -10px, rgba(93,139,198,.16), transparent 74px),
-    linear-gradient(90deg, rgba(200,154,115,.045), transparent 15%, transparent 85%, rgba(200,154,115,.045)),
-    linear-gradient(180deg, rgba(22,29,39,.985), rgba(5,8,13,.995)) !important;
+    radial-gradient(circle at 50% -8px, rgba(93,139,198,.13), transparent 66px),
+    linear-gradient(90deg, rgba(200,154,115,.035), transparent 15%, transparent 85%, rgba(200,154,115,.035)),
+    linear-gradient(180deg, rgba(22,29,39,.98), rgba(5,8,13,.992)) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(238,192,145,.04),
-    inset 0 -15px 26px rgba(0,0,0,.12),
-    0 9px 24px rgba(0,0,0,.52),
-    0 0 0 1px rgba(4,6,10,.85) !important;
+    inset 0 0 0 1px rgba(238,192,145,.03),
+    inset 0 -12px 20px rgba(0,0,0,.1),
+    0 8px 20px rgba(0,0,0,.46) !important;
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::before,
@@ -23,30 +21,31 @@
   position: absolute;
   top: 50%;
   z-index: -1;
-  width: 104px;
-  height: 76px;
+  width: 84px;
+  height: 62px;
   pointer-events: none;
   background: url("../assets/ui/ornaments/tm-endcap.svg") center / contain no-repeat;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.62));
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,.56));
+  opacity: .78;
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::before {
-  left: -84px;
+  left: -66px;
   transform: translateY(-50%);
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::after {
-  right: -84px;
+  right: -66px;
   transform: translateY(-50%) scaleX(-1);
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest {
   position: absolute;
   left: 50%;
-  top: -32px;
+  top: -25px;
   z-index: 6;
-  width: 54px;
-  height: 54px;
+  width: 44px;
+  height: 44px;
   transform: translateX(-50%);
   display: grid;
   place-items: center;
@@ -58,19 +57,19 @@
   position: absolute;
   inset: 4px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(93,139,198,.20), transparent 68%);
-  box-shadow: 0 0 16px rgba(93,139,198,.22);
+  background: radial-gradient(circle, rgba(93,139,198,.16), transparent 68%);
+  box-shadow: 0 0 12px rgba(93,139,198,.18);
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest img {
   position: relative;
   z-index: 1;
-  width: 54px;
-  height: 54px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   filter:
-    drop-shadow(0 4px 7px rgba(0,0,0,.78))
-    drop-shadow(0 0 10px rgba(93,139,198,.38));
+    drop-shadow(0 3px 6px rgba(0,0,0,.74))
+    drop-shadow(0 0 8px rgba(93,139,198,.3));
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
@@ -78,14 +77,14 @@
   .slot,
   li
 ) {
-  border: 1px solid rgba(161,119,87,.66) !important;
+  border: 1px solid rgba(161,119,87,.56) !important;
   border-radius: 4px !important;
   background:
-    radial-gradient(circle at 50% 35%, rgba(93,139,198,.075), transparent 62%),
-    linear-gradient(180deg, rgba(15,21,29,.96), rgba(5,8,12,.98)) !important;
+    radial-gradient(circle at 50% 35%, rgba(93,139,198,.06), transparent 62%),
+    linear-gradient(180deg, rgba(15,21,29,.95), rgba(5,8,12,.98)) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(238,192,145,.025),
-    inset 0 -8px 14px rgba(0,0,0,.1);
+    inset 0 0 0 1px rgba(238,192,145,.02),
+    inset 0 -7px 12px rgba(0,0,0,.08);
   transition:
     border-color var(--tm-transition-fast),
     box-shadow var(--tm-transition-fast),
@@ -97,12 +96,11 @@
   .slot,
   li
 ):hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   border-color: var(--tm-gold-light) !important;
   box-shadow:
-    inset 0 0 10px rgba(200,154,115,.1),
-    0 0 11px rgba(200,154,115,.2),
-    0 5px 9px rgba(0,0,0,.34);
+    inset 0 0 9px rgba(200,154,115,.08),
+    0 0 9px rgba(200,154,115,.16);
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
@@ -112,8 +110,8 @@
 ) {
   border-color: var(--tm-arcane-light) !important;
   box-shadow:
-    inset 0 0 12px rgba(93,139,198,.18),
-    0 0 13px rgba(93,139,198,.3);
+    inset 0 0 10px rgba(93,139,198,.15),
+    0 0 11px rgba(93,139,198,.24);
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
@@ -127,12 +125,11 @@
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) button {
   color: var(--tm-text-muted) !important;
-  border: 1px solid rgba(161,119,87,.64) !important;
-  background: linear-gradient(180deg, rgba(25,32,42,.96), rgba(8,12,18,.98)) !important;
+  border: 1px solid rgba(161,119,87,.54) !important;
+  background: linear-gradient(180deg, rgba(25,32,42,.95), rgba(8,12,18,.98)) !important;
 }
 
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) button:hover {
   color: var(--tm-gold-light) !important;
   border-color: var(--tm-gold) !important;
 }
-
