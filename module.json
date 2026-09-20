@@ -33,5 +33,7 @@
       "name": "Español",
       "path": "lang/es.json"
     }
-  ]
+  ],
+  "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.2.1/tierra-magica-ui-v0.2.1.zip"
 }
