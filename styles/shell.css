@@ -1,4 +1,4 @@
-/* Tierra Mágica UI — shell v0.3.1 */
+/* Tierra Mágica UI — shell v0.3.2 */
 
 .tierra-magica-ui.tm-theme-full {
   --tm-ui-panel:
@@ -12,48 +12,44 @@
 
 .tierra-magica-ui.tm-theme-full :is(
   #scene-controls,
-  #ui-right,
   #hotbar,
-  #action-bar,
   #players,
-  #navigation
+  #navigation,
+  #sidebar,
+  .sidebar
 ) {
   color: var(--tm-text);
 }
 
-/* No se cambia position, width, display ni grid de #ui-right. */
+/* #ui-right es una superficie de posicionamiento amplia en Foundry.
+ * Debe permanecer transparente para no tapar el canvas.
+ */
 .tierra-magica-ui.tm-theme-full #ui-right {
-  border-left: 1px solid var(--tm-ui-border) !important;
-  background:
-    linear-gradient(90deg, rgba(200,154,115,.035), transparent 16%),
-    linear-gradient(180deg, rgba(16,22,31,.975), rgba(5,8,12,.99)) !important;
-  box-shadow:
-    -1px 0 0 rgba(14,16,20,.92),
-    -3px 0 0 rgba(161,119,87,.12),
-    -10px 0 24px rgba(0,0,0,.26),
-    inset 1px 0 0 rgba(238,192,145,.045) !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .tierra-magica-ui.tm-theme-full :is(#ui-top, #ui-bottom) {
   position: relative;
 }
 
-/* Scrollbars */
-.tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) * {
+/* Scrollbars solo en superficies de contenido reales. */
+.tierra-magica-ui.tm-theme-full :is(#sidebar, .sidebar, #chat-log, #players) * {
   scrollbar-color: var(--tm-brass) rgba(6,9,13,.62);
   scrollbar-width: thin;
 }
 
-.tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) *::-webkit-scrollbar {
+.tierra-magica-ui.tm-theme-full :is(#sidebar, .sidebar, #chat-log, #players) *::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
-.tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) *::-webkit-scrollbar-track {
+.tierra-magica-ui.tm-theme-full :is(#sidebar, .sidebar, #chat-log, #players) *::-webkit-scrollbar-track {
   background: rgba(6,9,13,.62);
 }
 
-.tierra-magica-ui.tm-theme-full :is(#ui-right, #sidebar, #chat-log, #players) *::-webkit-scrollbar-thumb {
+.tierra-magica-ui.tm-theme-full :is(#sidebar, .sidebar, #chat-log, #players) *::-webkit-scrollbar-thumb {
   border: 1px solid rgba(238,192,145,.22);
   border-radius: 4px;
   background: linear-gradient(var(--tm-gold), var(--tm-leather));
