@@ -1,28 +1,50 @@
-/* Sidebar derecha y chat — Foundry V13/V14 */
+/* Sidebar derecha — overhaul v0.3 */
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar, .sidebar) {
+  position: relative;
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) {
-  border-bottom: 1px solid rgba(200, 154, 115, 0.54) !important;
+  position: relative;
+  margin: 6px 6px 4px !important;
+  padding: 4px !important;
+  border: 1px solid rgba(200,154,115,.58) !important;
+  border-radius: 4px !important;
   background:
-    linear-gradient(180deg, rgba(35, 43, 54, 0.98), rgba(10, 15, 22, 0.99)) !important;
+    radial-gradient(circle at 50% 0, rgba(93,139,198,.12), transparent 60%),
+    linear-gradient(180deg, rgba(39,46,57,.98), rgba(9,14,21,.99)) !important;
   box-shadow:
-    inset 0 -1px 0 rgba(93, 139, 198, 0.10),
-    0 3px 10px rgba(0, 0, 0, 0.22);
+    inset 0 0 0 1px rgba(238,192,145,.035),
+    0 4px 11px rgba(0,0,0,.28);
+}
+
+.tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  width: 190px;
+  height: 22px;
+  transform: translateX(-50%);
+  background: url("../assets/ui/ornaments/tm-divider.svg") center / 190px 22px no-repeat;
+  opacity: .5;
+  pointer-events: none;
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) :is(a, button, .item) {
   color: var(--tm-text-muted) !important;
-  border-color: transparent;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+  border: 1px solid transparent !important;
+  border-radius: 3px !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.85);
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) :is(a, button, .item):hover {
   color: var(--tm-gold-light) !important;
+  border-color: rgba(200,154,115,.3) !important;
+  background: rgba(200,154,115,.045) !important;
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(#sidebar-tabs, nav.tabs, .sidebar-tabs) :is(
@@ -32,13 +54,14 @@
   [aria-selected="true"]
 ) {
   color: #f2f8ff !important;
-  border-bottom-color: var(--tm-arcane-light) !important;
+  border-color: rgba(93,139,198,.48) !important;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(93,139,198,.15), transparent 70%) !important;
   box-shadow:
-    inset 0 -2px 0 rgba(93, 139, 198, 0.68),
-    inset 0 0 10px rgba(93, 139, 198, 0.08);
+    inset 0 -2px 0 rgba(93,139,198,.72),
+    inset 0 0 10px rgba(93,139,198,.08);
 }
 
-/* Superficies internas del panel derecho. */
 .tierra-magica-ui.tm-theme-full #ui-right :is(
   .tab,
   .sidebar-tab,
@@ -56,9 +79,13 @@
   textarea
 ) {
   color: #f1e4d5 !important;
-  border: 1px solid rgba(161, 119, 87, 0.62) !important;
-  background: rgba(7, 10, 15, 0.84) !important;
-  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.48);
+  border: 1px solid rgba(161,119,87,.68) !important;
+  border-radius: 3px !important;
+  background:
+    linear-gradient(180deg, rgba(8,12,18,.94), rgba(5,8,12,.98)) !important;
+  box-shadow:
+    inset 0 1px 7px rgba(0,0,0,.54),
+    inset 0 0 0 1px rgba(238,192,145,.02);
 }
 
 .tierra-magica-ui.tm-theme-full #ui-right :is(
@@ -70,67 +97,20 @@
   outline: none;
   border-color: var(--tm-arcane-light) !important;
   box-shadow:
-    inset 0 1px 6px rgba(0, 0, 0, 0.48),
-    0 0 0 1px rgba(93, 139, 198, 0.30);
+    inset 0 1px 7px rgba(0,0,0,.54),
+    0 0 0 1px rgba(93,139,198,.3),
+    0 0 10px rgba(93,139,198,.12);
 }
 
-/* Mensajes de chat. */
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message {
-  border: 1px solid rgba(161, 119, 87, 0.74) !important;
-  border-left: 3px solid var(--tm-brass) !important;
+.tierra-magica-ui.tm-theme-full #ui-right :is(
+  .directory-header,
+  .sidebar-header,
+  header.directory-header
+) {
+  margin: 4px 6px 6px !important;
+  padding: 7px 8px !important;
+  border: 1px solid rgba(161,119,87,.36);
   border-radius: 3px;
   background:
-    linear-gradient(180deg, rgba(232, 222, 204, 0.98), rgba(198, 184, 163, 0.98)) !important;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.30),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-}
-
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .message-header {
-  color: #2b241f !important;
-  border-bottom-color: rgba(80, 55, 38, 0.24);
-}
-
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .message-content {
-  color: #1d1b19 !important;
-}
-
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message :is(
-  .dice-roll,
-  .dice-result,
-  .dice-total
-) {
-  border-color: rgba(80, 55, 38, 0.34);
-}
-
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #chat-log .message .dice-total {
-  color: #181818 !important;
-  border: 1px solid rgba(80, 55, 38, 0.28) !important;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(66, 78, 88, 0.06)) !important;
-  box-shadow: inset 0 0 0 1px rgba(93, 139, 198, 0.12);
-}
-
-/* Formulario de chat. */
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#chat-form, #chat-controls) {
-  border-color: rgba(200, 154, 115, 0.58) !important;
-  background: rgba(8, 12, 18, 0.96) !important;
-}
-
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(
-  #chat-message,
-  #chat-form textarea
-) {
-  color: #ead7c2 !important;
-  border-color: rgba(161, 119, 87, 0.68) !important;
-  background: rgba(7, 10, 15, 0.92) !important;
-}
-
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(
-  #chat-message,
-  #chat-form textarea
-):focus {
-  border-color: var(--tm-gold) !important;
-  box-shadow: 0 0 10px rgba(93, 139, 198, 0.18);
-  outline: none;
+    linear-gradient(180deg, rgba(28,35,46,.88), rgba(11,15,21,.88));
 }

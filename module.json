@@ -1,8 +1,8 @@
 {
   "id": "tierra-magica-ui",
   "title": "Tierra Mágica — UI",
-  "description": "Interfaz visual oficial de Tierra Mágica para Foundry VTT. v0.2.1: compatibilidad corregida con la estructura UI actual de Foundry V13/V14. No modifica fichas de personaje.",
-  "version": "0.2.1",
+  "description": "Overhaul visual mayor para Foundry VTT: emblema oficial, ornamentación estructural, barra izquierda, navegación, sidebar, chat, hotbar, panel de jugadores y pausa. No modifica fichas de personaje.",
+  "version": "0.3.0",
   "authors": [
     {
       "name": "Tierra Mágica"
@@ -18,10 +18,12 @@
   ],
   "styles": [
     "styles/tokens.css",
+    "styles/ornaments.css",
     "styles/shell.css",
     "styles/controls.css",
     "styles/navigation.css",
     "styles/sidebar.css",
+    "styles/chat.css",
     "styles/hotbar.css",
     "styles/players.css",
     "styles/pause.css",
@@ -35,5 +37,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
-  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.2.1/tierra-magica-ui-v0.2.1.zip"
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.0/tierra-magica-ui-v0.3.0.zip"
 }

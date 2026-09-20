@@ -1,13 +1,32 @@
-/* Navegación superior de escenas — Foundry V13/V14 */
+/* Navegación superior — overhaul v0.3 */
 
 .tierra-magica-ui.tm-theme-full #navigation {
-  border: 1px solid rgba(161, 119, 87, 0.56) !important;
-  border-radius: 0 0 5px 5px;
+  position: relative;
+  overflow: visible;
+  padding-inline: 9px !important;
+  border: 1px solid rgba(200,154,115,.66) !important;
+  border-top-color: rgba(238,192,145,.78) !important;
+  border-radius: 3px 3px 9px 9px !important;
   background:
-    linear-gradient(180deg, rgba(20, 27, 37, 0.96), rgba(7, 11, 17, 0.97)) !important;
+    linear-gradient(90deg, rgba(93,139,198,.055), transparent 18%, transparent 82%, rgba(93,139,198,.055)),
+    linear-gradient(180deg, rgba(25,32,43,.98), rgba(6,10,16,.985)) !important;
   box-shadow:
-    inset 0 -1px 0 rgba(93, 139, 198, 0.08),
-    0 8px 20px rgba(0, 0, 0, 0.30);
+    inset 0 -1px 0 rgba(93,139,198,.12),
+    inset 0 1px 0 rgba(238,192,145,.05),
+    0 8px 22px rgba(0,0,0,.34) !important;
+}
+
+.tierra-magica-ui.tm-theme-full #navigation::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: min(520px, 74%);
+  height: 26px;
+  transform: translateX(-50%);
+  background: url("../assets/ui/ornaments/tm-divider.svg") center / 100% 26px no-repeat;
+  opacity: .72;
+  pointer-events: none;
 }
 
 .tierra-magica-ui.tm-theme-full #navigation :is(
@@ -18,6 +37,7 @@
   button
 ) {
   color: var(--tm-text-muted);
+  font-family: var(--tm-font-ui);
 }
 
 .tierra-magica-ui.tm-theme-full #navigation :is(
@@ -27,7 +47,7 @@
   button
 ):hover {
   color: var(--tm-gold-light) !important;
-  text-shadow: 0 0 8px rgba(200, 154, 115, 0.24);
+  text-shadow: 0 0 8px rgba(200,154,115,.28);
 }
 
 .tierra-magica-ui.tm-theme-full #navigation :is(
@@ -36,9 +56,11 @@
   .scene.current,
   [aria-current="true"]
 ) {
-  color: #eef8ff !important;
+  color: #f4faff !important;
   border-color: var(--tm-arcane-light) !important;
+  background: rgba(93,139,198,.08) !important;
   box-shadow:
-    inset 0 -2px 0 rgba(93, 139, 198, 0.70),
-    0 0 10px rgba(93, 139, 198, 0.18);
+    inset 0 -2px 0 rgba(93,139,198,.78),
+    inset 0 0 11px rgba(93,139,198,.08),
+    0 0 10px rgba(93,139,198,.16) !important;
 }

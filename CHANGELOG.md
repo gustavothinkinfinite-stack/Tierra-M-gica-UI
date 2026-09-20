@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.3.0 — Overhaul Visual Mayor
+
+- Sustituido el emblema provisional por el emblema oficial de Tierra Mágica.
+- Añadido asset oficial optimizado para Foundry.
+- Añadida capa de ornamentación estructural global.
+- Añadida placa superior de identidad Tierra Mágica.
+- Añadidos assets reutilizables de esquinas, rosetas, divisores y remates.
+- Reconstruida la barra izquierda como panel metálico/arcano.
+- Reforzada la navegación superior con separadores propios.
+- Reconstruida la carcasa visual de la sidebar derecha.
+- Separado el estilo de chat en un componente propio.
+- Rediseñadas las tarjetas de chat y resultados de dados.
+- Reconstruida la hotbar con remates laterales y emblema central.
+- Rediseñado el panel inferior izquierdo.
+- Reconstruida la pausa alrededor del emblema oficial.
+- Añadida opción para desactivar ornamentación avanzada.
+- Añadido observer de UI para reponer decoraciones tras re-render de Foundry.
+- Mejorado responsive y soporte de reducción de movimiento.
+- La ficha de personaje continúa expresamente fuera del alcance.
+
 ## 0.2.1
 
 - Corregidos selectores de interfaz para Foundry VTT V13/V14.
