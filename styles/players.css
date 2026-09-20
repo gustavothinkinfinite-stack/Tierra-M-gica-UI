@@ -1,30 +1,50 @@
-/* Panel de jugadores / estado */
+/* Panel inferior izquierdo — overhaul v0.3 */
 
 .tierra-magica-ui.tm-theme-full #players {
-  border: 1px solid rgba(161, 119, 87, 0.64);
-  border-radius: 4px;
+  position: relative;
+  overflow: visible !important;
+  padding: 7px 9px !important;
+  border: 1px solid rgba(200,154,115,.7) !important;
+  border-radius: 4px 4px 12px 4px !important;
   background:
-    linear-gradient(180deg, rgba(16, 22, 30, 0.94), rgba(6, 9, 14, 0.96));
+    radial-gradient(circle at 18px 50%, rgba(93,139,198,.1), transparent 56px),
+    linear-gradient(180deg, rgba(17,23,32,.965), rgba(5,8,13,.985)) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(238, 192, 145, 0.035),
-    0 7px 20px rgba(0, 0, 0, 0.40);
+    inset 0 0 0 1px rgba(238,192,145,.03),
+    0 8px 22px rgba(0,0,0,.46) !important;
+}
+
+.tierra-magica-ui.tm-theme-full #players::before {
+  content: "";
+  position: absolute;
+  right: -29px;
+  top: 50%;
+  width: 54px;
+  height: 54px;
+  transform: translateY(-50%);
+  background: url("../assets/ui/ornaments/tm-rosette.svg") center / contain no-repeat;
+  filter:
+    drop-shadow(0 4px 7px rgba(0,0,0,.7))
+    drop-shadow(0 0 7px rgba(93,139,198,.14));
+  pointer-events: none;
 }
 
 .tierra-magica-ui.tm-theme-full #players :is(h3, .players-header) {
-  color: var(--tm-gold-light);
-  border-bottom-color: rgba(161, 119, 87, 0.44);
-  letter-spacing: 0.04em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.90);
+  color: var(--tm-gold-light) !important;
+  border-bottom-color: rgba(161,119,87,.44);
+  font-family: var(--tm-font-display);
+  letter-spacing: .05em;
+  text-shadow: 0 1px 2px rgba(0,0,0,.9);
 }
 
 .tierra-magica-ui.tm-theme-full #players :is(.player, li) {
-  color: var(--tm-text-muted);
-  border-bottom-color: rgba(161, 119, 87, 0.16);
+  color: var(--tm-text-muted) !important;
+  border-bottom-color: rgba(161,119,87,.16);
 }
 
 .tierra-magica-ui.tm-theme-full #players :is(.player, li):hover {
-  color: var(--tm-text);
-  background: rgba(93, 139, 198, 0.06);
+  color: var(--tm-text) !important;
+  background: rgba(93,139,198,.07);
 }
 
 .tierra-magica-ui.tm-theme-full #players :is(
@@ -32,7 +52,7 @@
   .active,
   .connected
 ) {
-  color: #eef8ff;
+  color: #eef8ff !important;
 }
 
 .tierra-magica-ui.tm-theme-full #players :is(
@@ -40,5 +60,5 @@
   .active,
   .connected
 )::before {
-  filter: drop-shadow(0 0 5px rgba(93, 139, 198, 0.64));
+  filter: drop-shadow(0 0 6px rgba(93,139,198,.72));
 }
