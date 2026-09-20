@@ -1,6 +1,6 @@
-/* Hotbar — refinamiento v0.3.1 */
+/* Hotbar — superficie real v0.3.2 */
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar {
   overflow: visible !important;
   padding: 6px 14px 6px !important;
   border: 1px solid rgba(200,154,115,.76) !important;
@@ -15,8 +15,8 @@
     0 8px 20px rgba(0,0,0,.46) !important;
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::before,
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::after {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar::before,
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -29,17 +29,17 @@
   opacity: .78;
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::before {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar::before {
   left: -66px;
   transform: translateY(-50%);
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::after {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar::after {
   right: -66px;
   transform: translateY(-50%) scaleX(-1);
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar > .tm-hotbar-crest {
   position: absolute;
   left: 50%;
   top: -25px;
@@ -52,7 +52,7 @@
   pointer-events: none;
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest::before {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar > .tm-hotbar-crest::before {
   content: "";
   position: absolute;
   inset: 4px;
@@ -61,7 +61,7 @@
   box-shadow: 0 0 12px rgba(93,139,198,.18);
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) > .tm-hotbar-crest img {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar > .tm-hotbar-crest img {
   position: relative;
   z-index: 1;
   width: 44px;
@@ -72,7 +72,7 @@
     drop-shadow(0 0 8px rgba(93,139,198,.3));
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(
   .macro,
   .slot,
   li
@@ -91,7 +91,7 @@
     transform var(--tm-transition-fast);
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(
   .macro,
   .slot,
   li
@@ -103,7 +103,7 @@
     0 0 9px rgba(200,154,115,.16);
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(
   .macro.active,
   .slot.active,
   li.active
@@ -114,7 +114,7 @@
     0 0 11px rgba(93,139,198,.24);
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) :is(
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(
   .macro-key,
   .key
 ) {
@@ -123,13 +123,13 @@
   text-shadow: 0 1px 2px #000;
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) button {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar button {
   color: var(--tm-text-muted) !important;
   border: 1px solid rgba(161,119,87,.54) !important;
   background: linear-gradient(180deg, rgba(25,32,42,.95), rgba(8,12,18,.98)) !important;
 }
 
-.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar) button:hover {
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar button:hover {
   color: var(--tm-gold-light) !important;
   border-color: var(--tm-gold) !important;
 }
