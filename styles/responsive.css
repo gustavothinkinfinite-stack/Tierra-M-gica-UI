@@ -1,4 +1,4 @@
-/* Responsive / compatibilidad visual v0.3 */
+/* Responsive / compatibilidad visual v0.3.5 */
 
 @media (max-width: 1400px) {
   #tm-brand-plate {
@@ -63,11 +63,10 @@
     padding-inline: 18px;
   }
 
-  .tierra-magica-ui .tm-pause img.tm-pause-emblem,
-  .tierra-magica-ui #pause img.tm-pause-emblem,
-  .tierra-magica-ui .game-pause img.tm-pause-emblem {
-    width: clamp(220px, 36vw, 275px) !important;
-    margin-top: -52px !important;
+  .tierra-magica-ui .tm-pause-emblem-visual {
+    width: clamp(210px, 34vw, 270px);
+    margin-top: -44px;
+    margin-bottom: -30px;
   }
 }
 

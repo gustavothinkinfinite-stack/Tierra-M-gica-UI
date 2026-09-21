@@ -1,8 +1,8 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.3.4";
+const VERSION = "0.3.5";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
-const PAUSE_ICON = `${ASSET_ROOT}/branding/tm-emblem-official-large.webp`;
+const PAUSE_ICON = OFFICIAL_EMBLEM;
 
 const THEME_CLASSES = [
   "tm-theme-full",
@@ -227,14 +227,13 @@ function applyPauseMarkup(element) {
 
   const image = element.querySelector("img");
   if (image) {
-    image.src = PAUSE_ICON;
+    /* La imagen nativa de Foundry se conserva como fallback semántico,
+     * pero la presentación visible se realiza con un elemento propio.
+     */
+    image.src = OFFICIAL_EMBLEM;
     image.alt = "Emblema oficial de Tierra Mágica";
-    image.decoding = "async";
-    image.onerror = () => {
-      image.onerror = null;
-      image.src = OFFICIAL_EMBLEM;
-    };
     image.classList.add("tm-pause-emblem");
+    image.setAttribute("aria-hidden", "true");
     image.style.animation = "none";
   }
 
@@ -261,6 +260,17 @@ function applyPauseMarkup(element) {
     }
 
     element.appendChild(shell);
+  }
+
+  const shell = element.querySelector(":scope > .tm-pause-shell");
+  if (shell && !shell.querySelector(":scope > .tm-pause-emblem-visual")) {
+    const visual = createElement("div", "tm-pause-emblem-visual", {
+      "aria-hidden": "true"
+    });
+
+    const captionInShell = shell.querySelector("figcaption, h2, .pause-text");
+    if (captionInShell) shell.insertBefore(visual, captionInShell);
+    else shell.prepend(visual);
   }
 }
 
