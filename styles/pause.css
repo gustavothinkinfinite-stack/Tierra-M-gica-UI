@@ -1,4 +1,4 @@
-/* Tierra Mágica — Pause UI v0.3.4 */
+/* Tierra Mágica — Pause UI v0.3.5 */
 
 .tierra-magica-ui #pause.tm-pause,
 .tierra-magica-ui .game-pause.tm-pause,
@@ -23,9 +23,9 @@
   padding: 10px 34px 18px;
   border: 0;
   background:
-    radial-gradient(circle at 50% 30%, rgba(93,139,198,.13), transparent 32%),
-    linear-gradient(90deg, transparent 0%, rgba(7,10,15,.40) 16%, rgba(7,10,15,.68) 50%, rgba(7,10,15,.40) 84%, transparent 100%);
-  filter: drop-shadow(0 14px 28px rgba(0,0,0,.60));
+    radial-gradient(circle at 50% 30%, rgba(93,139,198,.12), transparent 32%),
+    linear-gradient(90deg, transparent 0%, rgba(7,10,15,.38) 16%, rgba(7,10,15,.66) 50%, rgba(7,10,15,.38) 84%, transparent 100%);
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,.58));
   isolation: isolate;
 }
 
@@ -40,7 +40,7 @@
   height: 28px;
   pointer-events: none;
   background: url("../assets/ui/ornaments/tm-divider.svg") center / 100% 28px no-repeat;
-  opacity: .70;
+  opacity: .68;
 }
 
 .tierra-magica-ui .tm-pause > .tm-pause-shell::before {
@@ -52,30 +52,39 @@
   margin-top: 5px;
 }
 
+/* La imagen nativa queda oculta. Foundry puede recrearla al re-render,
+ * pero ya no controla la composición ni la nitidez.
+ */
 .tierra-magica-ui .tm-pause img.tm-pause-emblem,
 .tierra-magica-ui #pause img.tm-pause-emblem,
 .tierra-magica-ui .game-pause img.tm-pause-emblem {
-  display: block !important;
-  width: clamp(250px, 18vw, 320px) !important;
-  max-width: 320px !important;
-  height: auto !important;
-  margin: -66px auto -26px !important;
-  object-fit: contain;
-  image-rendering: auto;
-  opacity: 1 !important;
-  filter:
-    drop-shadow(0 10px 14px rgba(0,0,0,.80))
-    drop-shadow(0 0 7px rgba(93,139,198,.30));
-  transform: none !important;
-  transform-origin: 50% 50%;
-  backface-visibility: visible;
-  animation: none !important;
+  display: none !important;
 }
 
-.tierra-magica-ui.tm-pause-pulse .tm-pause img.tm-pause-emblem,
-.tierra-magica-ui.tm-pause-pulse #pause img.tm-pause-emblem,
-.tierra-magica-ui.tm-pause-pulse .game-pause img.tm-pause-emblem {
-  animation: tm-arcane-breathe 5.8s ease-in-out infinite !important;
+/* Capa visual propia.
+ * Dos fondos: el asset grande arriba y el emblema oficial probado debajo.
+ * Si el primero falla, el segundo sigue siendo visible.
+ */
+.tierra-magica-ui .tm-pause-emblem-visual {
+  width: clamp(230px, 17vw, 300px);
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+  margin: -56px auto -34px;
+  pointer-events: none;
+  background-image:
+    url("../assets/ui/branding/tm-emblem-official-large.webp"),
+    url("../assets/ui/branding/tm-emblem-official.webp");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+  filter:
+    drop-shadow(0 10px 13px rgba(0,0,0,.80))
+    drop-shadow(0 0 6px rgba(93,139,198,.24));
+  transform: none;
+}
+
+.tierra-magica-ui.tm-pause-pulse .tm-pause-emblem-visual {
+  animation: tm-arcane-breathe 5.8s ease-in-out infinite;
 }
 
 .tierra-magica-ui .tm-pause figcaption,
@@ -110,7 +119,7 @@
   text-transform: uppercase;
   text-shadow:
     0 2px 2px rgba(0,0,0,.98),
-    0 0 12px rgba(200,154,115,.26);
+    0 0 12px rgba(200,154,115,.24);
   white-space: nowrap;
 }
 
@@ -125,29 +134,25 @@
   text-transform: uppercase;
   text-shadow:
     0 2px 2px rgba(0,0,0,.98),
-    0 0 8px rgba(93,139,198,.17);
+    0 0 8px rgba(93,139,198,.15);
 }
 
-/* El pulso anima únicamente la luz.
- * Ya no escala el raster, evitando pérdida de nitidez por interpolación.
- */
+/* Solo se anima la luz: ningún scale sobre el emblema. */
 @keyframes tm-arcane-breathe {
   0%, 100% {
     filter:
-      drop-shadow(0 10px 14px rgba(0,0,0,.80))
-      drop-shadow(0 0 6px rgba(93,139,198,.24));
+      drop-shadow(0 10px 13px rgba(0,0,0,.80))
+      drop-shadow(0 0 5px rgba(93,139,198,.20));
   }
   50% {
     filter:
-      drop-shadow(0 10px 14px rgba(0,0,0,.82))
-      drop-shadow(0 0 13px rgba(93,139,198,.48));
+      drop-shadow(0 10px 13px rgba(0,0,0,.82))
+      drop-shadow(0 0 11px rgba(93,139,198,.42));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tierra-magica-ui.tm-pause-pulse .tm-pause img.tm-pause-emblem,
-  .tierra-magica-ui.tm-pause-pulse #pause img.tm-pause-emblem,
-  .tierra-magica-ui.tm-pause-pulse .game-pause img.tm-pause-emblem {
+  .tierra-magica-ui.tm-pause-pulse .tm-pause-emblem-visual {
     animation: none !important;
   }
 }
