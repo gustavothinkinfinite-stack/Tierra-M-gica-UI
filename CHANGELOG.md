@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.5 — Restauración del emblema de pausa
+
+- Corregida la regresión de v0.3.4 que podía dejar visible solamente el título de pausa.
+- La pausa ya no depende del `img` nativo de Foundry para mostrar el emblema.
+- Añadida una capa visual propia `.tm-pause-emblem-visual`.
+- El asset grande y el emblema oficial probado se dibujan como fondos apilados, proporcionando fallback visual real.
+- El `img` nativo se mantiene únicamente como respaldo semántico y se oculta en la composición.
+- El pulso arcano sigue sin escalar el raster; solo cambia la iluminación.
+- Actualizado el comportamiento responsive de la pausa.
+- Confirmado en la captura de v0.3.4 que barra izquierda, hotbar y bordes recortados quedaron corregidos.
+- La ficha de personaje continúa fuera del alcance.
+
 ## 0.3.4 — Pulido visual y emblema nítido
 
 - Añadido `tm-emblem-official-large.webp` de alta resolución para la pantalla de pausa.
