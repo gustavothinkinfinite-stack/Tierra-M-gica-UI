@@ -1,8 +1,8 @@
 {
   "id": "tierra-magica-ui",
   "title": "Tierra Mágica — UI",
-  "description": "Columna arcana completa para los controles de escena, con ornamentación integrada y navegación refinada.",
-  "version": "0.3.8",
+  "description": "La columna arcana se adapta a los botones de controles visibles sin cubrir el mapa.",
+  "version": "0.3.9",
   "authors": [
     {
       "name": "Tierra Mágica"
@@ -37,5 +37,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
-  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.8/tierra-magica-ui-v0.3.8.zip"
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.9/tierra-magica-ui-v0.3.9.zip"
 }
