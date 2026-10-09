@@ -1,3 +1,13 @@
+## 0.3.6 — Estabilidad, limpieza y validación automática
+
+- Optimizados los observadores para evitar reconexiones innecesarias de ResizeObserver.
+- Reducidas las mutaciones redundantes de las decoraciones del DOM y el ancho de la sidebar.
+- Añadida limpieza de la estructura de pausa cuando se desactiva su personalización.
+- Incorporada validación de manifiesto, archivos de idioma, sintaxis JS y assets de pausa.
+- Añadido workflow de CI para Pull Requests y validación previa al empaquetado de releases.
+- Actualizada la documentación de contribución y versiones.
+- Pendiente la prueba visual manual en Foundry VTT v13 y v14.
+
 # Changelog
 
 ## 0.3.5 — Restauración del emblema de pausa
