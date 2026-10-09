@@ -1,4 +1,4 @@
-/* Responsive / compatibilidad visual v0.3.5 */
+/* Responsive / compatibilidad visual v0.3.8 */
 
 @media (max-width: 1400px) {
   #tm-brand-plate {
@@ -98,5 +98,15 @@
     transition-duration: .001ms !important;
     animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .tierra-magica-ui.tm-theme-full #scene-controls {
+    padding: 7px 5px 11px !important;
+    min-width: 54px !important;
+  }
+  .tierra-magica-ui.tm-theme-full #scene-controls::after {
+    opacity: .34;
   }
 }

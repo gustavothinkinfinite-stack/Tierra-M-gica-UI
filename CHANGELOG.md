@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.8 — Columna arcana izquierda
+
+- Nueva placa oscura y metálica para la columna de herramientas con bordes de latón, iluminación azul y remates contenidos.
+- Se mantienen las coordenadas y dimensiones de la barra y de las herramientas que gestiona Foundry.
+- Refinado visual de las pestañas de escena sin cambiar el tamaño del contenedor de navegación.
+- Adaptación en pantallas estrechas y preservación de los modos Reducido y Compatibilidad.
+- Pendiente validación visual en Foundry VTT.
+
 ## 0.3.7 — Panel de jugadores y números de hotbar
 
 - Evitado el recorte de los nombres y datos de latencia en el panel inferior izquierdo.
