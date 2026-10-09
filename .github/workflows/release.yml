@@ -18,6 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate module before packaging
+        run: node tests/validate-module.mjs
+
       - name: Read version
         id: version
         shell: bash
