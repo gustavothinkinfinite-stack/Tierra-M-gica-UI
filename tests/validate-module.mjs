@@ -24,7 +24,7 @@ try {
 
 if (moduleManifest) {
   check(moduleManifest.id === "tierra-magica-ui", "Unexpected module id");
-  check(/^\\d+\\.\\d+\\.\\d+$/.test(moduleManifest.version), "Invalid semantic version");
+  check(/^\d+\.\d+\.\d+$/.test(moduleManifest.version), "Invalid semantic version");
   check(moduleManifest.download?.includes(`/v${moduleManifest.version}/`), "Download URL version mismatch");
   for (const path of [
     ...(moduleManifest.esmodules ?? []),
@@ -43,7 +43,7 @@ if (moduleManifest) {
 }
 
 const pauseCSS = read("styles/pause.css");
-const assetReferences = [...pauseCSS.matchAll(/url\\(["']?(\\.\\.\\/assets\\/[^)"']+)/g)];
+const assetReferences = [...pauseCSS.matchAll(/url\(["']?(\.\.\/assets\/[^)"']+)/g)];
 for (const match of assetReferences) {
   const resolved = join(root, "styles", match[1]);
   check(existsSync(resolved), `Missing pause asset: ${match[1]}`);
