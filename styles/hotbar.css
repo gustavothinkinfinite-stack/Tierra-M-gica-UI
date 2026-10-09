@@ -137,3 +137,32 @@
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar button:hover {
   color: var(--tm-gold-light) !important;
 }
+
+/* Hotbar: números de atajo en placas legibles, sin mover ni redimensionar slots. */
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(.macro-key, .key) {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  left: auto;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  min-width: 17px;
+  height: 18px;
+  padding: 0 3px;
+  border: 1px solid rgba(220,176,119,.75);
+  border-radius: 3px;
+  color: #f8dbad !important;
+  background: linear-gradient(180deg, rgba(38,46,57,.98), rgba(10,15,23,.98));
+  box-shadow: 0 1px 5px rgba(0,0,0,.65);
+  font-family: var(--tm-font-ui);
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1px 2px #000;
+  pointer-events: none;
+}
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(.macro, .slot, li):has(> :is(.macro-key, .key)) {
+  position: relative;
+}
