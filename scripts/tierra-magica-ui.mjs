@@ -13,6 +13,7 @@ const THEME_CLASSES = [
 let uiObserver = null;
 let resizeObserver = null;
 let decorateQueued = false;
+let observedResizeTargets = [];
 
 function pauseEnabled() {
   return game.settings.get(MODULE_ID, "pauseEnabled");
@@ -154,7 +155,9 @@ function decorateStableTargets() {
   ].filter(Boolean);
 
   for (const target of targets) {
-    target.classList.add("tm-ornamented-panel");
+    if (!target.classList.contains("tm-ornamented-panel")) {
+      target.classList.add("tm-ornamented-panel");
+    }
   }
 
   ensureHotbarCrest();
@@ -163,17 +166,15 @@ function decorateStableTargets() {
   const width = sidebar?.getBoundingClientRect?.().width;
 
   if (width && Number.isFinite(width)) {
-    document.documentElement.style.setProperty(
-      "--tm-sidebar-width",
-      `${Math.round(width)}px`
-    );
+    const nextWidth = `${Math.round(width)}px`;
+    if (document.documentElement.style.getPropertyValue("--tm-sidebar-width") !== nextWidth) {
+      document.documentElement.style.setProperty("--tm-sidebar-width", nextWidth);
+    }
   }
 }
 
 function refreshResizeObserverTargets() {
   if (!resizeObserver) return;
-
-  resizeObserver.disconnect();
 
   const targets = [
     document.querySelector("#sidebar, .sidebar"),
@@ -181,9 +182,14 @@ function refreshResizeObserverTargets() {
     document.querySelector("#navigation")
   ].filter(Boolean);
 
-  for (const target of targets) {
-    resizeObserver.observe(target);
-  }
+  // Avoid disconnecting and observing unchanged nodes on every decoration pass.
+  const removed = observedResizeTargets.filter((target) => !targets.includes(target));
+  const added = targets.filter((target) => !observedResizeTargets.includes(target));
+  if (!removed.length && !added.length) return;
+
+  for (const target of removed) resizeObserver.unobserve(target);
+  for (const target of added) resizeObserver.observe(target);
+  observedResizeTargets = targets;
 }
 
 function decorateInterface() {
@@ -205,6 +211,7 @@ function scheduleDecorateInterface() {
 function installInterfaceObservers() {
   uiObserver?.disconnect();
   resizeObserver?.disconnect();
+  observedResizeTargets = [];
 
   uiObserver = new MutationObserver(scheduleDecorateInterface);
   uiObserver.observe(document.body, {
@@ -221,7 +228,19 @@ function installInterfaceObservers() {
 }
 
 function applyPauseMarkup(element) {
-  if (!element || !pauseEnabled()) return;
+  if (!element) return;
+  if (!pauseEnabled()) {
+    // Undo our wrapper if pause styling is switched off while the app persists.
+    const shell = element.querySelector(":scope > .tm-pause-shell");
+    if (shell) {
+      shell.querySelector(":scope > .tm-pause-emblem-visual")?.remove();
+      while (shell.firstChild) element.insertBefore(shell.firstChild, shell);
+      shell.remove();
+    }
+    element.classList.remove("tm-pause");
+    element.querySelector("img.tm-pause-emblem")?.classList.remove("tm-pause-emblem");
+    return;
+  }
 
   element.classList.add("tm-pause");
 
