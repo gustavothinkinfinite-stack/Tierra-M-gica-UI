@@ -1,3 +1,13 @@
+# Changelog
+
+## 0.3.7 — Panel de jugadores y números de hotbar
+
+- Evitado el recorte de los nombres y datos de latencia en el panel inferior izquierdo.
+- Ajustados ancho, espacios internos y ajuste de nombres del panel de jugadores.
+- Números de atajo 1–0 con placas compactas y contraste mejorado, sin cambiar el tamaño de las macros.
+- Se conserva la ficha de personaje fuera del alcance del módulo.
+- Pendiente verificación visual en Foundry sobre la captura real.
+
 ## 0.3.6 — Estabilidad, limpieza y validación automática
 
 - Optimizados los observadores para evitar reconexiones innecesarias de ResizeObserver.
@@ -7,8 +17,6 @@
 - Añadido workflow de CI para Pull Requests y validación previa al empaquetado de releases.
 - Actualizada la documentación de contribución y versiones.
 - Pendiente la prueba visual manual en Foundry VTT v13 y v14.
-
-# Changelog
 
 ## 0.3.5 — Restauración del emblema de pausa
 

@@ -1,8 +1,8 @@
 {
   "id": "tierra-magica-ui",
   "title": "Tierra Mágica — UI",
-  "description": "Optimiza los observadores de interfaz, mejora la limpieza visual de pausa y añade validaciones automáticas.",
-  "version": "0.3.6",
+  "description": "Mejora la legibilidad del panel de jugadores y de los números de la barra de macros.",
+  "version": "0.3.7",
   "authors": [
     {
       "name": "Tierra Mágica"
@@ -37,5 +37,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
-  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.6/tierra-magica-ui-v0.3.6.zip"
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.3.7/tierra-magica-ui-v0.3.7.zip"
 }
