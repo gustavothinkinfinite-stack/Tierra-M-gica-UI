@@ -4,7 +4,7 @@ Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.3.0 — Overhaul Visual Mayor**
+**v0.3.6 — Estabilización de la interfaz visual**
 
 Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 
@@ -117,3 +117,16 @@ module.json
 ## Licencia
 
 Pendiente de definir para la distribución final.
+
+
+## Desarrollo y validación
+
+Los cambios deben prepararse en una rama de trabajo y proponerse mediante un Pull Request contra `main`. Evitar commits directos en `main`.
+
+La verificación automática comprueba sintaxis del script, JSON, referencias del manifiesto y existencia de recursos. Ejecutar localmente con Node.js 20 o posterior:
+
+```bash
+node tests/validate-module.mjs
+```
+
+Además, antes de fusionar cambios visuales hay que probar en Foundry VTT los tres modos de interfaz, pausa activada/desactivada, distintos tamaños de pantalla, macros, chat y convivencia con otros módulos. La validación estática no reemplaza esas pruebas.
