@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.9 — Columna ajustada a herramientas visibles
+
+- La placa izquierda se ajusta a la geometría de los botones visibles, sin ocupar toda la altura del viewport.
+- Integra ambas hileras de botones sobre un fondo arcano delimitado, con remate inferior.
+- Respeta posiciones, clics y comportamiento original de Foundry.
+- Actualización reactiva al cambiar de herramienta y al redimensionar.
+- Pendiente comprobación visual en Foundry.
+
+
 ## 0.3.8 — Columna arcana izquierda
 
 - Nueva placa oscura y metálica para la columna de herramientas con bordes de latón, iluminación azul y remates contenidos.

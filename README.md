@@ -4,7 +4,7 @@ Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.3.8 — Columna arcana de controles**
+**v0.3.9 — Columna dinámica de controles**
 
 Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 

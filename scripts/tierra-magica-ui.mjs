@@ -1,5 +1,5 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.3.8";
+const VERSION = "0.3.9";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
 const PAUSE_ICON = OFFICIAL_EMBLEM;
@@ -146,6 +146,43 @@ function ensureHotbarCrest() {
   }
 }
 
+function fitControlsPanel() {
+  const container = document.querySelector("#scene-controls");
+  if (!container || getThemeMode() !== "full") return;
+
+  const wrapper = container.getBoundingClientRect();
+  const candidates = container.querySelectorAll(
+    "button, .control-tool, .scene-control, [data-tool], [data-control]"
+  );
+  const bounds = [...candidates]
+    .filter((node) => {
+      const style = window.getComputedStyle(node);
+      if (style.display === "none" || style.visibility === "hidden") return false;
+      const rect = node.getBoundingClientRect();
+      return rect.width >= 20 && rect.width <= 60 &&
+        rect.height >= 20 && rect.height <= 60 &&
+        rect.bottom > 0 && rect.top < window.innerHeight;
+    })
+    .map((node) => node.getBoundingClientRect());
+
+  if (!bounds.length) return;
+  const left = Math.min(...bounds.map((rect) => rect.left)) - wrapper.left - 6;
+  const right = Math.max(...bounds.map((rect) => rect.right)) - wrapper.left + 6;
+  const top = Math.min(...bounds.map((rect) => rect.top)) - wrapper.top - 8;
+  const bottom = Math.max(...bounds.map((rect) => rect.bottom)) - wrapper.top + 15;
+  const vars = {
+    "--tm-controls-panel-left": `${Math.round(left)}px`,
+    "--tm-controls-panel-top": `${Math.round(top)}px`,
+    "--tm-controls-panel-width": `${Math.round(right - left)}px`,
+    "--tm-controls-panel-height": `${Math.round(bottom - top)}px`
+  };
+  for (const [key, value] of Object.entries(vars)) {
+    if (container.style.getPropertyValue(key) !== value) {
+      container.style.setProperty(key, value);
+    }
+  }
+}
+
 function decorateStableTargets() {
   const targets = [
     document.querySelector("#sidebar, .sidebar"),
@@ -179,7 +216,8 @@ function refreshResizeObserverTargets() {
   const targets = [
     document.querySelector("#sidebar, .sidebar"),
     document.querySelector("#hotbar"),
-    document.querySelector("#navigation")
+    document.querySelector("#navigation"),
+    document.querySelector("#scene-controls")
   ].filter(Boolean);
 
   // Avoid disconnecting and observing unchanged nodes on every decoration pass.
@@ -196,6 +234,7 @@ function decorateInterface() {
   decorateQueued = false;
   if (!document.body) return;
 
+  fitControlsPanel();
   ensureOrnamentLayer();
   decorateStableTargets();
   refreshResizeObserverTargets();
