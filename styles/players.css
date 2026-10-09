@@ -1,40 +1,46 @@
-/* Panel inferior izquierdo — refinamiento v0.3.2 */
-
+/* Jugadores: restaurar espacio legible sin modificar el panel de controles izquierdo. */
 .tierra-magica-ui.tm-theme-full #players {
-  overflow: hidden !important;
-  padding: 6px 8px !important;
-  border: 1px solid rgba(200,154,115,.56) !important;
-  border-radius: 4px 4px 9px 4px !important;
-  background:
-    linear-gradient(90deg, rgba(93,139,198,.045), transparent 34%),
-    linear-gradient(180deg, rgba(17,23,32,.95), rgba(5,8,13,.98)) !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(238,192,145,.02),
-    0 6px 16px rgba(0,0,0,.38) !important;
+  box-sizing: border-box;
+  width: max-content !important;
+  min-width: 185px !important;
+  max-width: min(285px, calc(100vw - 24px)) !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  padding: 8px 10px !important;
+  border: 1px solid rgba(200,154,115,.58) !important;
+  border-radius: 6px !important;
+  color: var(--tm-text-muted);
+  background: linear-gradient(180deg, rgba(19,27,38,.95), rgba(6,10,17,.97)) !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,.38) !important;
 }
-
+.tierra-magica-ui.tm-theme-full #players :is(.players-list, .player-list, ol, ul) {
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible !important;
+}
+.tierra-magica-ui.tm-theme-full #players :is(.player, li) {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--tm-text-muted) !important;
+  border-bottom-color: rgba(161,119,87,.18);
+  padding-block: 3px;
+}
+.tierra-magica-ui.tm-theme-full #players :is(.player-name, .name) {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
 .tierra-magica-ui.tm-theme-full #players :is(h3, .players-header) {
   color: var(--tm-gold-light) !important;
-  border-bottom-color: rgba(161,119,87,.36);
   font-family: var(--tm-font-display);
-  letter-spacing: .04em;
-  text-shadow: 0 1px 2px rgba(0,0,0,.88);
+  letter-spacing: .03em;
 }
-
-.tierra-magica-ui.tm-theme-full #players :is(.player, li) {
-  color: var(--tm-text-muted) !important;
-  border-bottom-color: rgba(161,119,87,.14);
-}
-
 .tierra-magica-ui.tm-theme-full #players :is(.player, li):hover {
-  color: var(--tm-text) !important;
-  background: rgba(93,139,198,.055);
+  background: rgba(93,139,198,.08);
 }
-
-.tierra-magica-ui.tm-theme-full #players :is(
-  .player-active,
-  .active,
-  .connected
-) {
-  color: #eef8ff !important;
+@media (max-width: 600px) {
+  .tierra-magica-ui.tm-theme-full #players {
+    min-width: 150px !important;
+    max-width: min(220px, calc(100vw - 16px)) !important;
+  }
 }
