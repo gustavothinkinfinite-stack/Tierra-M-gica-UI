@@ -4,7 +4,7 @@ Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.3.5 — Estabilización de la interfaz visual**
+**v0.3.6 — Estabilización de la interfaz visual**
 
 Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 
