@@ -4,7 +4,7 @@ Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.4.2 — Cristal del Astral (hotbar)**
+**v0.4.3 — Selector de diseños de hotbar**
 
 Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 
@@ -130,3 +130,7 @@ node tests/validate-module.mjs
 ```
 
 Además, antes de fusionar cambios visuales hay que probar en Foundry VTT los tres modos de interfaz, pausa activada/desactivada, distintos tamaños de pantalla, macros, chat y convivencia con otros módulos. La validación estática no reemplaza esas pruebas.
+
+## Diseños de hotbar
+
+En Configuración de módulos → Tierra Mágica UI → Diseño de barra de acciones, cada usuario puede elegir Clásica Arcana, Forja Oscura, Legado Élfico o Cristal del Astral (predeterminado). La preferencia se guarda en el cliente y se aplica al instante.

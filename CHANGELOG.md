@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.3 — Selector individual de hotbar
+
+- Nuevo ajuste de usuario (scope client) para elegir Clásica Arcana, Forja Oscura, Legado Élfico o Cristal del Astral.
+- Cristal del Astral permanece como diseño predeterminado.
+- Tres nuevos SVG originales; el cuarto reutiliza el arte astral oficial.
+- Cambio inmediato de apariencia sin alterar macros, botones ni otros jugadores.
+- Pendiente prueba visual interactiva en Foundry.
+
+
 ## 0.4.2 — Cristal del Astral
 
 - Nueva ilustración SVG original para la barra horizontal, con cristales, runas, filigranas y energía azul.
