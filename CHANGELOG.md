@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — Retirada de la columna decorativa izquierda
+
+- Eliminado el panel vertical ornamental detrás de los controles de escena.
+- Los botones de Foundry conservan su estilo Tierra Mágica individual y su comportamiento.
+- Sin cambios en las posiciones ni en la lógica nativa de Foundry.
+- La próxima propuesta visual se centra en una barra horizontal ornamental detrás de la hotbar inferior.
+
+
 ## 0.3.9 — Columna ajustada a herramientas visibles
 
 - La placa izquierda se ajusta a la geometría de los botones visibles, sin ocupar toda la altura del viewport.
