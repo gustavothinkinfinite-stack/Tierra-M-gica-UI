@@ -131,3 +131,38 @@
   opacity: .7;
   pointer-events: none;
 }
+
+/* Marcos decorativos independientes del chat: SVG transparente, sin bloquear eventos.
+   La ilustración es un recurso de marco, no una imagen fija del chat ni de sus mensajes. */
+.tierra-magica-ui[data-tm-chat-theme="astral"] { --tm-chat-frame: url("../assets/ui/ornaments/tm-chat-frame-astral.svg"); --tm-chat-metal: #d6a66a; --tm-chat-glow: #27baff; }
+.tierra-magica-ui[data-tm-chat-theme="classic"] { --tm-chat-frame: url("../assets/ui/ornaments/tm-chat-frame-classic.svg"); --tm-chat-metal: #e0bd82; --tm-chat-glow: #70a3e1; }
+.tierra-magica-ui[data-tm-chat-theme="forge"] { --tm-chat-frame: url("../assets/ui/ornaments/tm-chat-frame-forge.svg"); --tm-chat-metal: #b77a5a; --tm-chat-glow: #f06b40; }
+.tierra-magica-ui[data-tm-chat-theme="elven"] { --tm-chat-frame: url("../assets/ui/ornaments/tm-chat-frame-elven.svg"); --tm-chat-metal: #b4cfad; --tm-chat-glow: #4fd7a4; }
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat {
+  position: relative !important;
+  isolation: isolate;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none !important;
+  background: var(--tm-chat-frame) center / 100% 100% no-repeat;
+  filter: drop-shadow(0 0 4px color-mix(in srgb,var(--tm-chat-glow) 35%,transparent));
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat :is(#chat-log,#chat-controls,#chat-form) {
+  position: relative;
+  z-index: 1;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat #chat-log {
+  padding-inline: 19px !important;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat :is(#chat-controls,#chat-form) {
+  margin-inline: 18px !important;
+  border-color: var(--tm-chat-metal) !important;
+}
+@media(max-width: 900px) {
+ .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat #chat-log { padding-inline: 12px !important; }
+ .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat :is(#chat-controls,#chat-form) { margin-inline: 12px !important; }
+}

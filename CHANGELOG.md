@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.4 — Marcos arcanos para el chat
+
+- Cuatro marcos SVG originales: Cristal del Astral, Clásica Arcana, Forja Oscura y Legado Élfico.
+- Nuevo selector individual de marco del chat (scope client); Astral predeterminado.
+- Marcos transparentes superpuestos sin capturar eventos, conservando los mensajes y controles nativos.
+- Márgenes adaptados para mantener contenido legible y preservar desplazamiento y tiradas.
+- El marco es una adaptación vectorial de la ilustración aprobada, no una copia pixel a pixel.
+- Pendiente validación visual en el cliente Foundry.
+
+
 ## 0.4.3 — Selector individual de hotbar
 
 - Nuevo ajuste de usuario (scope client) para elegir Clásica Arcana, Forja Oscura, Legado Élfico o Cristal del Astral.
