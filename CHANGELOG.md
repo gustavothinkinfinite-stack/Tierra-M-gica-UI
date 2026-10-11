@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.2 — Cristal del Astral
+
+- Nueva ilustración SVG original para la barra horizontal, con cristales, runas, filigranas y energía azul.
+- Integración detrás de toda la hotbar sin interceptar clics ni mover los botones.
+- Ranuras oscuras con iluminación azul para estados activos y marcos de latón.
+- Mantiene los controles nativos y la adaptación a pantallas estrechas.
+- Validación visual final pendiente en Foundry.
+
+
 ## 0.4.1 — Barra arcana horizontal
 
 - Añadida una placa ornamental continua detrás de toda la hotbar, incluyendo controles laterales, ranuras numeradas y paginación.
