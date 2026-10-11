@@ -4,7 +4,7 @@ Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.4.3 — Selector de diseños de hotbar**
+**v0.4.4 — Marcos del chat y diseños de hotbar**
 
 Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 
@@ -134,3 +134,7 @@ Además, antes de fusionar cambios visuales hay que probar en Foundry VTT los tr
 ## Diseños de hotbar
 
 En Configuración de módulos → Tierra Mágica UI → Diseño de barra de acciones, cada usuario puede elegir Clásica Arcana, Forja Oscura, Legado Élfico o Cristal del Astral (predeterminado). La preferencia se guarda en el cliente y se aplica al instante.
+
+## Marcos del chat
+
+Configuración de módulos → Tierra Mágica UI → Diseño del marco del chat: Cristal del Astral (predeterminado), Clásica Arcana, Forja Oscura y Legado Élfico. El marco vectorial transparente conserva el contenido interactivo nativo. La selección es independiente por usuario y por componente.
