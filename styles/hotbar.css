@@ -1,4 +1,4 @@
-/* Hotbar — barra arcana horizontal v0.4.1
+/* Hotbar — Cristal del Astral v0.4.2
  * La decoración permanece contenida dentro de la macro-list visible.
  */
 
@@ -17,35 +17,24 @@
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar::before {
   content: "";
   position: absolute;
+  inset: -16px -12px -9px;
   z-index: -1;
   pointer-events: none;
-  inset: -7px -8px -5px;
-  box-sizing: border-box;
-  border: 1px solid rgba(200,154,115,.78);
-  border-radius: 8px 8px 10px 10px;
-  background:
-    url("../assets/ui/ornaments/tm-divider.svg") center top 1px / min(640px, 76%) 22px no-repeat,
-    radial-gradient(ellipse at 50% 0%, rgba(93,139,198,.20), transparent 56%),
-    linear-gradient(90deg, rgba(161,119,87,.16), transparent 12%, transparent 88%, rgba(161,119,87,.16)),
-    linear-gradient(180deg, rgba(27,36,49,.985), rgba(10,15,23,.99) 48%, rgba(5,8,13,.995));
-  box-shadow:
-    inset 0 0 0 1px rgba(238,192,145,.06),
-    inset 0 -3px 0 rgba(93,139,198,.11),
-    0 7px 18px rgba(0,0,0,.43);
+  background: url("../assets/ui/ornaments/tm-astral-hotbar.svg") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,.75)) drop-shadow(0 0 9px rgba(52,142,207,.3));
 }
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar::after {
   content: "";
   position: absolute;
   z-index: -1;
   pointer-events: none;
-  left: 14px;
-  right: 14px;
-  bottom: -2px;
-  height: 5px;
-  border-bottom: 1px solid rgba(200,154,115,.48);
-  background: linear-gradient(90deg, transparent, rgba(131,198,255,.42), transparent);
+  left: 9%;
+  right: 9%;
+  bottom: -4px;
+  height: 4px;
+  background: linear-gradient(90deg,transparent,#b88c5c 12%,#63c5fa 50%,#b88c5c 88%,transparent);
+  opacity: .75;
 }
-
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar .hotbar-controls,
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(
   #hotbar-controls-left,
@@ -200,4 +189,23 @@
 }
 .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(.macro, .slot, li):has(> :is(.macro-key, .key)) {
   position: relative;
+}
+
+/* Astral crystal: slots recessed into the metal, with blue arcane highlights. */
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar .macro-list {
+  border-color: rgba(218,175,113,.82) !important;
+  background: linear-gradient(180deg,rgba(9,19,35,.95),rgba(3,9,20,.97)) !important;
+}
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(.macro,.slot,li) {
+  border-color: rgba(169,132,90,.8) !important;
+  box-shadow: inset 0 1px 7px rgba(67,149,204,.13), inset 0 0 0 1px rgba(5,8,16,.9) !important;
+}
+.tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar :is(.macro,.slot,li).active {
+  border-color: #91e1ff !important;
+  box-shadow: inset 0 0 13px rgba(53,166,234,.3),0 0 13px rgba(53,166,234,.45) !important;
+}
+@media (max-width: 900px) {
+  .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar::before {
+    inset: -10px -6px -5px;
+  }
 }
