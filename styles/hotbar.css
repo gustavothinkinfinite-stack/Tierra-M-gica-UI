@@ -209,3 +209,19 @@
     inset: -10px -6px -5px;
   }
 }
+
+/* Selector por usuario: únicamente cambia el arte y los acentos de la hotbar. */
+.tierra-magica-ui[data-tm-hotbar-theme="classic"] { --tm-hotbar-art: url("../assets/ui/ornaments/tm-hotbar-classic.svg"); --tm-hotbar-accent: #bda16e; --tm-hotbar-glow: rgba(100,169,216,.3); }
+.tierra-magica-ui[data-tm-hotbar-theme="forge"] { --tm-hotbar-art: url("../assets/ui/ornaments/tm-hotbar-forge.svg"); --tm-hotbar-accent: #bc7152; --tm-hotbar-glow: rgba(226,107,67,.3); }
+.tierra-magica-ui[data-tm-hotbar-theme="elven"] { --tm-hotbar-art: url("../assets/ui/ornaments/tm-hotbar-elven.svg"); --tm-hotbar-accent: #b7c7a6; --tm-hotbar-glow: rgba(111,201,163,.3); }
+.tierra-magica-ui[data-tm-hotbar-theme="astral"] { --tm-hotbar-art: url("../assets/ui/ornaments/tm-astral-hotbar.svg"); --tm-hotbar-accent: #dab77a; --tm-hotbar-glow: rgba(53,166,234,.3); }
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar::before {
+  background-image: var(--tm-hotbar-art, url("../assets/ui/ornaments/tm-astral-hotbar.svg")) !important;
+  filter: drop-shadow(0 5px 12px rgba(0,0,0,.75)) drop-shadow(0 0 9px var(--tm-hotbar-glow,rgba(53,166,234,.3))) !important;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar .macro-list {
+  border-color: var(--tm-hotbar-accent,#dab77a) !important;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar :is(.macro,.slot,li) {
+  border-color: var(--tm-hotbar-accent,#dab77a) !important;
+}
