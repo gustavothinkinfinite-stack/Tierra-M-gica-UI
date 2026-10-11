@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 108" preserveAspectRatio="none">
+<defs>
+<linearGradient id="steel" x2="0" y2="1"><stop stop-color="#344357"/><stop offset=".25" stop-color="#111d30"/><stop offset=".7" stop-color="#060b16"/><stop offset="1" stop-color="#233349"/></linearGradient>
+<linearGradient id="bronze"><stop stop-color="#73513a"/><stop offset=".18" stop-color="#e7bc7d"/><stop offset=".5" stop-color="#9b6b47"/><stop offset=".82" stop-color="#e7bc7d"/><stop offset="1" stop-color="#73513a"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#c5f8ff" stop-opacity=".7"/><stop offset=".22" stop-color="#4ab9ef" stop-opacity=".32"/><stop offset="1" stop-color="#2c5da3" stop-opacity="0"/></radialGradient>
+<pattern id="runes" width="56" height="48" patternUnits="userSpaceOnUse"><path d="M8 32 14 18 20 32M11 27h7M35 20v12m-5-6h10" fill="none" stroke="#5ca7d4" stroke-opacity=".19" stroke-width="1"/></pattern>
+</defs>
+<path d="M16 12 38 3H1062l22 9 12 40-12 43-22 10H38L16 95 4 52Z" fill="url(#steel)" stroke="url(#bronze)" stroke-width="3"/>
+<path d="M28 20 46 12H1054l18 8 9 32-9 34-18 9H46L28 86 17 52Z" fill="url(#runes)" stroke="#7eaccc" stroke-opacity=".48" stroke-width="1.4"/>
+<path d="M42 16H1058M42 91H1058" stroke="url(#bronze)" stroke-width="2"/>
+<path d="M46 23H1054M46 84H1054" stroke="#7cd4ff" stroke-opacity=".37"/>
+<path d="M75 17 110 5 140 17 110 31Z M960 17 990 5 1025 17 990 31Z" fill="#101b30" stroke="#cda371" stroke-width="2"/>
+<g fill="#8ddfff" stroke="#e7c48f" stroke-width="2"><path d="m110 7 12 11-12 11-12-11Z"/><path d="m990 7 12 11-12 11-12-11Z"/></g>
+<ellipse cx="550" cy="52" rx="220" ry="63" fill="url(#glow)"/>
+<path d="M550 5 567 25 560 48 550 60 540 48 533 25Z" fill="#194b82" stroke="#e9c68d" stroke-width="2"/>
+<path d="M550 9 559 26 550 47 541 26Z" fill="#86e5ff" opacity=".8"/>
+<path d="M550 60 560 75 550 89 540 75Z" fill="#23578b" stroke="#c9a66f" stroke-width="1.4"/>
+<path d="M160 13H500M600 13H940M160 94H500M600 94H940" stroke="#c6a16b" stroke-opacity=".6"/>
+<g fill="none" stroke="#79c8ee" stroke-opacity=".55"><path d="M220 13l12 10 12-10M856 13l12 10 12-10M220 94l12-10 12 10M856 94l12-10 12 10"/></g>
+</svg>
