@@ -51,9 +51,13 @@
     box-shadow: 0 5px 14px rgba(0,0,0,.34);
   }
 
-  .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::before,
-  .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) :is(#hotbar, #action-bar)::after {
+  .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #action-bar::before,
+  .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #action-bar::after {
     display: none;
+  }
+  .tierra-magica-ui:is(.tm-theme-full, .tm-theme-reduced) #hotbar::before {
+    inset: -5px -4px -4px;
+    background-size: min(480px, 72%) 18px, auto, auto, auto;
   }
 
   .tierra-magica-ui .tm-pause > .tm-pause-shell,

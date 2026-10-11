@@ -1,8 +1,8 @@
 {
   "id": "tierra-magica-ui",
   "title": "Tierra Mágica — UI",
-  "description": "Se elimina el panel decorativo de la columna izquierda; los controles nativos quedan sin fondo añadido.",
-  "version": "0.4.0",
+  "description": "Barra horizontal arcana Tierra Mágica para la hotbar, con placa continua y detalles de latón y azul.",
+  "version": "0.4.1",
   "authors": [
     {
       "name": "Tierra Mágica"
@@ -37,5 +37,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
-  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.4.0/tierra-magica-ui-v0.4.0.zip"
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.4.1/tierra-magica-ui-v0.4.1.zip"
 }

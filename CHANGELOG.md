@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.1 — Barra arcana horizontal
+
+- Añadida una placa ornamental continua detrás de toda la hotbar, incluyendo controles laterales, ranuras numeradas y paginación.
+- Paleta oficial del módulo: azul noche, acero, latón y luz arcana azul; utiliza el divisor ornamental de Tierra Mágica.
+- Pseudo-elementos decorativos con pointer-events desactivado; no capturan clics ni cambian el tamaño de los botones.
+- Ajustes para pantallas estrechas, manteniendo visible la barra en móvil.
+- Requiere comprobación visual final dentro de Foundry VTT.
+
+
 ## 0.4.0 — Retirada de la columna decorativa izquierda
 
 - Eliminado el panel vertical ornamental detrás de los controles de escena.
