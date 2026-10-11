@@ -1,5 +1,5 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.4.0";
+const VERSION = "0.4.3";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
 const PAUSE_ICON = OFFICIAL_EMBLEM;
@@ -39,6 +39,12 @@ function applyThemeMode(mode = getThemeMode()) {
   body.dataset.tmUiMode = safeMode;
 
   scheduleDecorateInterface();
+}
+
+const HOTBAR_THEMES = ["astral", "classic", "forge", "elven"];
+function applyHotbarTheme(value = game.settings.get(MODULE_ID, "hotbarTheme")) {
+  const theme = HOTBAR_THEMES.includes(value) ? value : "astral";
+  if (document.body) document.body.dataset.tmHotbarTheme = theme;
 }
 
 function applyPausePulse(enabled = game.settings.get(MODULE_ID, "pausePulse")) {
@@ -314,6 +320,22 @@ Hooks.once("init", () => {
     onChange: applyThemeMode
   });
 
+  game.settings.register(MODULE_ID, "hotbarTheme", {
+    name: "Diseño de barra de acciones",
+    hint: "Elegí el diseño de tu hotbar. Es una preferencia individual y no cambia la interfaz de otros jugadores.",
+    scope: "client",
+    config: true,
+    type: String,
+    choices: {
+      classic: "Clásica Arcana",
+      forge: "Forja Oscura",
+      elven: "Legado Élfico",
+      astral: "Cristal del Astral"
+    },
+    default: "astral",
+    onChange: applyHotbarTheme
+  });
+
   game.settings.register(MODULE_ID, "ornamentsEnabled", {
     name: "TMUI.Settings.OrnamentsEnabled.Name",
     hint: "TMUI.Settings.OrnamentsEnabled.Hint",
@@ -359,6 +381,7 @@ Hooks.on("renderGamePause", (_app, element) => {
 
 Hooks.once("ready", () => {
   applyThemeMode();
+  applyHotbarTheme();
   applyPausePulse();
   decorateInterface();
   installInterfaceObservers();
