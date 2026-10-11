@@ -1,5 +1,5 @@
 const MODULE_ID = "tierra-magica-ui";
-const VERSION = "0.4.3";
+const VERSION = "0.4.4";
 const ASSET_ROOT = `modules/${MODULE_ID}/assets/ui`;
 const OFFICIAL_EMBLEM = `${ASSET_ROOT}/branding/tm-emblem-official.webp`;
 const PAUSE_ICON = OFFICIAL_EMBLEM;
@@ -45,6 +45,12 @@ const HOTBAR_THEMES = ["astral", "classic", "forge", "elven"];
 function applyHotbarTheme(value = game.settings.get(MODULE_ID, "hotbarTheme")) {
   const theme = HOTBAR_THEMES.includes(value) ? value : "astral";
   if (document.body) document.body.dataset.tmHotbarTheme = theme;
+}
+
+const CHAT_THEMES = ["astral", "classic", "forge", "elven"];
+function applyChatTheme(value = game.settings.get(MODULE_ID, "chatTheme")) {
+  const theme = CHAT_THEMES.includes(value) ? value : "astral";
+  if (document.body) document.body.dataset.tmChatTheme = theme;
 }
 
 function applyPausePulse(enabled = game.settings.get(MODULE_ID, "pausePulse")) {
@@ -336,6 +342,22 @@ Hooks.once("init", () => {
     onChange: applyHotbarTheme
   });
 
+  game.settings.register(MODULE_ID, "chatTheme", {
+    name: "Diseño del marco del chat",
+    hint: "Elegí un marco decorativo para el chat. La elección es individual y no afecta a otros jugadores.",
+    scope: "client",
+    config: true,
+    type: String,
+    choices: {
+      astral: "Cristal del Astral",
+      classic: "Clásica Arcana",
+      forge: "Forja Oscura",
+      elven: "Legado Élfico"
+    },
+    default: "astral",
+    onChange: applyChatTheme
+  });
+
   game.settings.register(MODULE_ID, "ornamentsEnabled", {
     name: "TMUI.Settings.OrnamentsEnabled.Name",
     hint: "TMUI.Settings.OrnamentsEnabled.Hint",
@@ -382,6 +404,7 @@ Hooks.on("renderGamePause", (_app, element) => {
 Hooks.once("ready", () => {
   applyThemeMode();
   applyHotbarTheme();
+  applyChatTheme();
   applyPausePulse();
   decorateInterface();
   installInterfaceObservers();
