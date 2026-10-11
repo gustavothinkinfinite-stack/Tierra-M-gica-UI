@@ -4,7 +4,7 @@ Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.3.9 — Columna dinámica de controles**
+**v0.4.2 — Cristal del Astral (hotbar)**
 
 Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 
@@ -15,11 +15,11 @@ Incluye:
 - ornamentación estructural global;
 - placa superior de identidad;
 - esquinas y separadores arcanos;
-- barra izquierda convertida en panel metálico/arcano;
+- controles izquierdos sin columna decorativa adicional;
 - navegación superior reforzada;
 - sidebar derecha convertida en carcasa temática;
 - chat con tarjetas propias;
-- hotbar convertida en artefacto arcano con remates laterales;
+- hotbar Cristal del Astral, con ilustración SVG propia, cristales, runas y filigranas;
 - panel inferior izquierdo tematizado;
 - soporte responsive;
 - reducción de movimiento;
