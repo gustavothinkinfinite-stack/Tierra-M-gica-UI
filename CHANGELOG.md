@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.6 — Hotbar más amplia y limpia
+
+- Se amplía el marco lateral de la hotbar y se aumenta ligeramente el espacio interno entre macros.
+- Los ornamentos SVG se recortan al perímetro, evitando cristales ocultos debajo de los botones.
+- Se conserva el tamaño de los iconos, las teclas numéricas y la interacción nativa.
+- Los cuatro temas individuales siguen disponibles.
+- Requiere comprobación visual en Foundry para confirmar medidas exactas.
+
+
 ## 0.4.5 — Corrección del marco del chat
 
 - El marco se renderiza como borde SVG de 10 px mediante border-image, no como imagen de fondo extendida sobre todo el chat.
