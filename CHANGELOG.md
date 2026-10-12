@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.5 — Corrección del marco del chat
+
+- El marco se renderiza como borde SVG de 10 px mediante border-image, no como imagen de fondo extendida sobre todo el chat.
+- Restablecidos los márgenes de mensajes y controles para evitar compresión.
+- Eliminado el adorno flotante sobre el editor de mensajes.
+- Se mantienen las cuatro variedades seleccionables y las preferencias individuales.
+- Validación visual en Foundry pendiente tras el release.
+
+
 ## 0.4.4 — Marcos arcanos para el chat
 
 - Cuatro marcos SVG originales: Cristal del Astral, Clásica Arcana, Forja Oscura y Legado Élfico.
