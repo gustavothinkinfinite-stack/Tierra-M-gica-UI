@@ -1,8 +1,8 @@
 {
   "id": "tierra-magica-ui",
   "title": "Tierra Mágica — UI",
-  "description": "Cuatro marcos arcanos para el chat y cuatro diseños de hotbar, seleccionables individualmente por jugador.",
-  "version": "0.4.4",
+  "description": "Marcos de chat ajustados al borde, sin invadir mensajes ni controles; cuatro estilos individuales.",
+  "version": "0.4.5",
   "authors": [
     {
       "name": "Tierra Mágica"
@@ -37,5 +37,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/main/module.json",
-  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.4.4/tierra-magica-ui-v0.4.4.zip"
+  "download": "https://github.com/gustavothinkinfinite-stack/Tierra-M-gica-UI/releases/download/v0.4.5/tierra-magica-ui-v0.4.5.zip"
 }
