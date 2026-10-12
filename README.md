@@ -4,7 +4,7 @@ Interfaz visual oficial de **Tierra Mágica** para Foundry VTT.
 
 ## Estado actual
 
-**v0.4.4 — Marcos del chat y diseños de hotbar**
+**v0.4.5 — Marcos del chat ajustados a los bordes**
 
 Esta versión reemplaza la tematización ligera de v0.2 por una capa visual mucho más reconocible.
 
