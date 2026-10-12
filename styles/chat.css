@@ -166,3 +166,30 @@
  .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat #chat-log { padding-inline: 12px !important; }
  .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat :is(#chat-controls,#chat-form) { margin-inline: 12px !important; }
 }
+
+/* v0.4.5: el marco ocupa exclusivamente una franja fina del borde.
+   No se estira una ilustración completa sobre los mensajes ni sobre el editor. */
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat::after {
+  inset: 0 !important;
+  background: none !important;
+  border: 10px solid transparent;
+  border-image-source: var(--tm-chat-frame);
+  border-image-slice: 54 35 54 35;
+  border-image-width: 10px;
+  border-image-repeat: stretch;
+  filter: none !important;
+  box-sizing: border-box;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat #chat-log {
+  padding-inline: 8px !important;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat :is(#chat-controls,#chat-form) {
+  margin-inline: 6px !important;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat-form::before {
+  display: none !important;
+}
+@media (max-width:900px) {
+ .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat #chat-log { padding-inline: 8px !important; }
+ .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #chat :is(#chat-controls,#chat-form) { margin-inline: 6px !important; }
+}
