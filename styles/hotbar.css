@@ -225,3 +225,40 @@
 .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar :is(.macro,.slot,li) {
   border-color: var(--tm-hotbar-accent,#dab77a) !important;
 }
+
+/* v0.4.6 — la ornamentación se limita al perímetro.
+   El espacio entre macros aumenta suavemente sin escalar iconos ni números. */
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar {
+  --tm-hotbar-frame-thickness: 10px;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar::before {
+  inset: -8px -18px -8px !important;
+  background: none !important;
+  border: var(--tm-hotbar-frame-thickness) solid transparent !important;
+  border-image-source: var(--tm-hotbar-art, url("../assets/ui/ornaments/tm-astral-hotbar.svg")) !important;
+  border-image-slice: 22 34 22 34 fill !important;
+  border-image-width: var(--tm-hotbar-frame-thickness) !important;
+  border-image-repeat: stretch !important;
+  /* Ocultar el centro del SVG: solo el borde debe quedar visible. */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar::after {
+  display: none !important;
+}
+.tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar .macro-list {
+  padding: 5px 8px !important;
+  gap: 2px !important;
+  column-gap: 2px !important;
+}
+@media (max-width:900px) {
+ .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar::before {
+   inset: -6px -10px -6px !important;
+ }
+ .tierra-magica-ui:is(.tm-theme-full,.tm-theme-reduced) #hotbar .macro-list {
+   padding: 4px 6px !important;
+   gap: 1px !important;
+ }
+}
